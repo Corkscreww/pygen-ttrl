@@ -1,0 +1,4 @@
+chainmap = ChainMap({'name': 'Arthur'}, {'name': 'Timur', 'age': 29}, {'name': 'Anri', 'age': 20}, {'name': 'Dima', 'age': 20})
+deep_update(chainmap, 'age', 29)
+
+print(chainmap)

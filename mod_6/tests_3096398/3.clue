@@ -1,0 +1,1 @@
+ChainMap({'city': 'Moscow'})

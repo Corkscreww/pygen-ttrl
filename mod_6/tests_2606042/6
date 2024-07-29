@@ -1,0 +1,1 @@
+print(scrabble('SSttpp123125eekki122i', 'stepik'))

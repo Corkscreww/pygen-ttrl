@@ -1,0 +1,4 @@
+chainmap = ChainMap({'name': 'Anri', 'age': 20}, {'name': 'Arthur', 'age': 20}, {'name': 'Timur', 'age': 29})
+result = get_all_values(chainmap, 'name')
+
+print(*sorted(result))

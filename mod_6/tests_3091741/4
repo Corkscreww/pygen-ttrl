@@ -1,0 +1,6 @@
+data.clear()
+
+data['a'] = 1
+
+print(data.max_values())
+print(data.min_values())

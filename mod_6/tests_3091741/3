@@ -1,0 +1,7 @@
+data['t'] += 1
+
+clue = [('b', 2), ('c', 2), ('n', 2), ('t', 2)]
+reply = data.min_values()
+
+print(type(reply))
+print(set(reply) == set(clue))

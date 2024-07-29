@@ -1,0 +1,4 @@
+chainmap = ChainMap({})
+deep_update(chainmap, 'city', 'Moscow')
+
+print(chainmap)

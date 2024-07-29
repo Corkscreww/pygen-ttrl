@@ -1,0 +1,4 @@
+chainmap = ChainMap({'name': 'Anri', 'city': 'Moscow'}, {'name': 'Arthur', 'city': 'Moscow'}, {'name': 'Timur', 'age': 29, 'city': 'Moscow'})
+result = get_all_values(chainmap, 'sex')
+
+print(result)

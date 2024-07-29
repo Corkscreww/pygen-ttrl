@@ -1,0 +1,3 @@
+chainmap = ChainMap({'age': 20}, {'city': 'Moscow'}, {'name': 'Anri', 'age': 20}, {'name': 'Timur', 'age': 29})
+
+print(get_value(chainmap, 'age', False))

@@ -1,0 +1,1 @@
+print(scrabble('b1e2e3g4e___e___k', 'BeegeeK'))

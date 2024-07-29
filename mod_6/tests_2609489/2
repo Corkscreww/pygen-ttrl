@@ -1,0 +1,3 @@
+languages = ['java', 'java', 'python', 'C++', 'assembler', 'java', 'C++', 'C', 'pascal', 'C++', 'pascal', 'java']
+
+print_bar_chart(languages, '#')

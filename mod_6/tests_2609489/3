@@ -1,0 +1,3 @@
+s = 'sssttteeepppiiikkk'
+
+print_bar_chart(s, '+')

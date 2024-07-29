@@ -1,0 +1,1 @@
+ChainMap({'name': 'Arthur'}, {'name': 'Timur', 'age': 29}, {'name': 'Anri', 'age': 29}, {'name': 'Dima', 'age': 29})

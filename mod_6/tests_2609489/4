@@ -1,0 +1,3 @@
+my_list = ['bbb', 'bbb', 'e', 'e', 'bbb', 'gggg', 'gggg', 'kkkkk', 'kkkkk', 'e', 'bbb', 'kkkkk']
+
+print_bar_chart(my_list, '#')

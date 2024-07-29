@@ -1,0 +1,20 @@
+2024
+
+from datetime import date
+
+td = timedelta(days=7)
+
+with open('input.txt') as inp:
+    year = int(inp.readline())
+
+mont = 1
+dat = date(year, mont, day1)
+while mont < 13:
+    if calendar.monthrange(year, 1)[0] != 3:
+        chet = 9 - calendar.monthrange(year, 1)[0]
+    else:
+        chet = 1
+    chet += 14
+    dat = date(year, mont, chet)
+    print(dat, end=':::')
+    mont += 1

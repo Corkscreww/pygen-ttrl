@@ -1,0 +1,3 @@
+my_list = ['TTT', 'TTT', 'i', 'MMMMM',  'TTT', 'MMMMM', 'MMMMM', 'uu', 'rrrr', 'MMMMM', 'uu', 'rrrr', 'MMMMM', 'rrrr', 'rrrr']
+
+print_bar_chart(my_list, '#')

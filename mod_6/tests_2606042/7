@@ -1,0 +1,1 @@
+print(scrabble('123125122', 'Arthur'))
