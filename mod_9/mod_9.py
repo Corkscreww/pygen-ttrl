@@ -547,3 +547,44 @@ def ():
 # f(0)
 
 """№ 25 Декоратор retry"""
+
+"""Блок 9.9 Модуль functools"""
+
+"""№ 11 Две функции"""
+
+# from functools import partial
+
+# def send_email(name, email_address, text):
+#     pass
+
+# to_Timur = partial(
+#     send_email, 'Timur', 'timyrik20@begeek.ru'
+# )
+
+# send_an_invitation = partial(
+#     send_email, '', '', text='Школа BEEGEEK приглашает Вас на новый курс по пр'
+#     'ограммированию на языке Python. тутут....'
+# )
+
+# to_Timur(text='fsdafsa')
+# b = send_an_invitation.keywords
+# print(b)
+
+from functools import lru_cache
+
+@lru_cache
+def word_mod(word):
+    result = ''
+    for ch in sorted(word):
+        result += ch
+    return result
+
+with open('input.txt', encoding='UTF-8') as input_file:
+    data = [st.strip() for st in input_file.readlines()]
+
+for word in data:
+    print(word_mod(word))
+
+print(word_mod.cache_info().hits)
+print(word_mod.cache_info().misses)
+print(word_mod.cache_info().currsize)
