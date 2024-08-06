@@ -1,0 +1,9 @@
+def success(login):
+    print(f'Здравствуйте, {login}!')
+
+
+def failure(login, text):
+    print(f'{login}, попробуйте снова. Текст ошибки: {text}')
+
+
+verification('Arthur_Davletov', 'мойпароль123', success, failure)

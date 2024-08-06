@@ -1,0 +1,3 @@
+print(111, 222, 333, sep='xxx', end='python')
+print(111, 222, 333, sep='--', end='\n')
+print(111, 222, 333, sep='qqq', end='!')

@@ -1,0 +1,3 @@
+print('aaa', 'bbb', 'CCC', sep='xxx', end='stepik')
+print('aaa', 'bbb', 'CCC', sep='--', end='python')
+print('aaa', 'bbb', 'CCC', sep='qqq', end='!')

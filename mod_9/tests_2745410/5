@@ -1,0 +1,1 @@
+print(*cyclic_shift.__annotations__.values())

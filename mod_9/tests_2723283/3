@@ -1,0 +1,5 @@
+@do_twice
+def beegeek():
+    return 'beegeek'
+    
+print(beegeek())

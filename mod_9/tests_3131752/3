@@ -1,0 +1,3 @@
+url = 'https://beegeek.ru'
+load = sourcetemplate(url)
+print(load())

@@ -1,0 +1,8 @@
+@trace
+def sub(a, b, c):
+    '''прекрасная функция'''
+    return a - b + c
+    
+print(sub.__name__)
+print(sub.__doc__)
+sub(20, 5, c=10)

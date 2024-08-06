@@ -1,0 +1,7 @@
+@sandwich
+def add_ingredients(ingredients):
+    for ing in ingredients:
+        spaces = ' ' * ((30 - len(ing)) // 2)
+        print(spaces + ing)
+
+add_ingredients(['томат', 'салат', 'сыр', 'бекон'])

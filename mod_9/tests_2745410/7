@@ -1,0 +1,4 @@
+numbers = [234, 33, 4, 6, 2, 4, 75, 34, 1, 3, 6, 3, 3, 2, 54, 65, 7, 8, 9]
+cyclic_shift(numbers, -11)
+
+print(numbers)

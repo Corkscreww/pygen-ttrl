@@ -1,0 +1,4 @@
+annotations = cyclic_shift.__annotations__
+
+print(annotations['return'])
+print(annotations['step'])

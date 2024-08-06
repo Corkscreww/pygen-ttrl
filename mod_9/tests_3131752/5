@@ -1,0 +1,3 @@
+url = 'https://hide_and_seek.harvard'
+load = sourcetemplate(url)
+print(load(wizard='Dambldor', magic_wand='elderberry', thief='Volandemord'))

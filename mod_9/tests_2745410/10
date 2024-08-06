@@ -1,0 +1,4 @@
+numbers = [234, 235]
+cyclic_shift(numbers, 15)
+
+print(numbers)

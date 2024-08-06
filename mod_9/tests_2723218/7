@@ -1,0 +1,8 @@
+@trace
+def func(nums):
+    '''прекрасная функция'''
+    return list(i**2 for i in nums)
+    
+print(func.__name__)
+print(func.__doc__)
+func([1, 2, 3, 4, 5, 6])

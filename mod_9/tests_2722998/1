@@ -1,0 +1,5 @@
+@sandwich
+def add_ingredients(ingredients):
+    print(' | '.join(ingredients))
+
+add_ingredients(['томат', 'салат', 'сыр', 'бекон'])

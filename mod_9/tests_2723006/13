@@ -1,0 +1,8 @@
+@takes_positive
+def power(a, n):
+    return a**n
+    
+try:
+    print(power(a="3", n="2"))
+except Exception as err:
+    print(type(err))

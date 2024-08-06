@@ -1,0 +1,6 @@
+@sandwich
+def counter(*args, **kwargs):
+    for i in args + tuple(kwargs.keys()) + tuple(kwargs.values()):
+        print(i)
+
+counter(10, 20, 30, sep='40', end='!!!', step='beegeek')

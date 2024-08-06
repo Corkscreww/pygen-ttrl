@@ -1,0 +1,7 @@
+@do_twice
+def beegeek():
+    print('beegeek')
+    
+beegeek()
+beegeek()
+beegeek()

@@ -1,0 +1,8 @@
+@trace
+def add(a, b, c):
+    '''docs'''
+    return a + b + c
+
+print(add(1, 2, 3))    
+print(add.__name__)
+print(add.__doc__)

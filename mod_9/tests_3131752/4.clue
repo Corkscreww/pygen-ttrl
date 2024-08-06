@@ -1,0 +1,1 @@
+https://all_for_comfort_life.com?notebook=huawei&sale=True&smartphone=iPhone

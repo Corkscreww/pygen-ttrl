@@ -1,0 +1,8 @@
+@takes_positive
+def positive_sum(*args):
+    return sum(args)
+    
+try:
+    print(positive_sum(10, 20, 16, 18, '10'))
+except Exception as err:
+    print(type(err))

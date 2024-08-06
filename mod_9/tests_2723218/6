@@ -1,0 +1,8 @@
+@trace
+def concat(a, b):
+    '''concat two strings'''
+    return a + b
+
+print(concat('bee', b='geek'))    
+print(concat.__name__)
+print(concat.__doc__)

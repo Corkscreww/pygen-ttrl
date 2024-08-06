@@ -1,0 +1,5 @@
+@takes_positive
+def positive_sum(*args):
+    return sum(args)
+    
+print(positive_sum(*range(10, 100)))

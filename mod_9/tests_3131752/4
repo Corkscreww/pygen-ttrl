@@ -1,0 +1,3 @@
+url = 'https://all_for_comfort_life.com'
+load = sourcetemplate(url)
+print(load(smartphone='iPhone', notebook='huawei', sale=True))
