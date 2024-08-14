@@ -1,0 +1,14 @@
+generator = reverse('stepik')
+
+print(type(generator))
+
+try:
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+    print(next(generator))
+except StopIteration:
+    print('Error')

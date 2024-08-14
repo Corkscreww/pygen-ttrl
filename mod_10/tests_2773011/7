@@ -1,0 +1,4 @@
+generator = reverse([1])
+
+print(type(generator))
+print(*generator)

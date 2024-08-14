@@ -1,0 +1,4 @@
+generator = reverse(list(range(123, 5453, 3)))
+
+print(type(generator))
+print(*generator)

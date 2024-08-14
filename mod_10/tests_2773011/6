@@ -1,0 +1,4 @@
+generator = reverse(list('HFJDHFjd23423i942313223hfjhfdJSHFJD656754964HF'))
+
+print(type(generator))
+print(*generator)

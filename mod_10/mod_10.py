@@ -358,3 +358,197 @@
 
 # xrange = Xrange(10, 1, -1)
 # print(*xrange)
+
+"""Блок 10.5 Генераторы. Часть 1"""
+
+"""№ 15 Функция simple_sequence()"""
+
+# def simple_sequence():
+#     n = 1
+#     while True:
+#         for i in range(1, n + 1):
+#             yield n
+#         n += 1
+
+
+# generator = simple_sequence()
+# numbers = [next(generator) for _ in range(10)]
+# print(*numbers)
+
+"""№ 16 Функция alternating_sequence()"""
+
+# def alternating_sequence(count=None):
+#     n = 1
+#     while True:
+#         if count is not None:
+#             if n == count + 1:
+#                 break
+#             else:
+#                 yield n * (-1) ** (n % 2 + 1)
+#                 n += 1
+#         else:
+#             yield n * (-1) ** (n % 2 + 1)
+#             n += 1
+
+
+# generator = alternating_sequence()
+# print(next(generator))
+# print(next(generator))
+
+"""№ 17 Функция primes()"""
+
+# def primes(left, right):
+#     if left == 1:
+#         left += 1
+#     while left < right:
+#         prost = True
+#         for num in range(2, left):
+#             if left % num == 0:
+#                 prost = False
+#                 break
+#         if prost:
+#             yield left
+#         left += 1
+
+# generator = primes(6, 36)
+# print(next(generator))
+# print(next(generator))
+
+"""№ 18 Функция reverse()"""
+
+# def reverse(sequence):
+#     sequence = list(sequence)
+#     sequence.reverse()
+#     for n in sequence:
+#         yield n
+
+# generator = reverse(list('HFJDHFjd23423i942313223hfjhfdJSHFJD656754964HF'))
+
+# print(type(generator))
+# print(*generator)
+
+"""№ 19 Функция dates()"""
+
+# from datetime import date
+# from datetime import timedelta
+
+# def dates(start, count=None):
+#     td = timedelta(days=1)
+#     while True:
+#         if count is not None:
+#                 if count == 0:
+#                      break
+#                 else:
+#                      yield start
+#                      start += td
+#                      count -= 1
+#         else:
+#              yield start
+#              start += td
+
+# generator = dates(date(2022, 3, 8), 5)
+# for n in generator:
+#      print(n, end=' ')
+
+"""№ 20 Функция card_deck()"""
+
+# def card_deck(suit):
+#     dostoinstvo = ['2', '3', '4', '5', '6', '7', '8', '9', '10',
+#                    'валет', 'дама', 'король', 'туз']
+#     masti = ['пик', 'треф', 'бубен', 'червей']
+#     while True:
+#         for mast in masti:
+#             if mast == suit:
+#                 continue
+#             else:
+#                 for dost in dostoinstvo:
+#                     yield dost + ' ' + mast
+
+# generator = card_deck('треф')
+# cards = [next(generator) for _ in range(40)]
+# print(*cards)
+
+"""№ 25 Функция matrix_by_elem()"""
+
+# def matrix_by_elem(matrix):
+#     for stroka in matrix:
+#         yield from stroka
+
+# matrix = [[1, 2, 3],
+#           [4, 5, 6],
+#           [7, 8, 9]]
+# print(*matrix_by_elem(matrix))
+
+"""№ 26 Функция palindromes()"""
+
+# def palindromes():
+#     n = 1
+#     while True:
+#         if str(n) == str(n)[::-1]:
+#             yield n
+#             n += 1
+
+# generator = palindromes()
+# numbers = [next(generator) for _ in range(30)]
+# print(*numbers)
+
+"""№ 27 Функция flatten()"""
+
+# def flatten(nested_list):
+#     for elem in nested_list:
+#         b = type(elem)
+#         if b == int:
+#             yield elem
+#         elif b == list:
+#             yield from flatten(elem)
+
+# generator = flatten([1, 2, 3, 4, 5, 6, 7])
+# print(*generator)
+
+"""Блок 10.6 Генераторы. Часть 2"""
+
+"""№ 15 Функция cubes_of_odds()"""
+
+# def cubes_of_odds(iterable):
+#     yield from (num ** 3 for num in iterable if num % 2 == 1)
+
+# evens = [2, 4, 6, 8, 10]
+# print(list(cubes_of_odds(evens)))
+
+"""№ 16 Функция is_prime()"""
+
+# def is_prime(number):
+#     if number == 1:
+#         return False
+#     return all(number % num != 0
+#                for num in range(2, number))
+
+# print(is_prime(1))
+
+"""№ 17 Функция count_iterable()"""
+
+# def count_iterable(iterable):
+#     return len(list(iterable))
+
+# data = tuple(range(432, 3845, 17))
+# print(count_iterable(data))
+
+"""№ 18 Функция all_together()"""
+
+# def all_together(*args):
+#     for arg in args:
+#         yield from (arg)
+
+# objects = [[1, 2, 3], [(0, 0), (1, 1)], {'geek': 1}]
+# print(*all_together(*objects))
+
+"""№ 19 Функция interleave()"""
+
+def interleave(*args):
+    for arg in zip(*args):
+        yield from (arg)
+
+numbers = [1, 2, 3]
+squares = [1, 4, 9]
+qubes = [1, 8, 27]
+print(*interleave(numbers, squares, qubes))

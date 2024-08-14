@@ -1,0 +1,4 @@
+generator = reverse('beegeek')
+
+print(type(generator))
+print(*generator)
