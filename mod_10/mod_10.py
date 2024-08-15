@@ -544,11 +544,180 @@
 
 """№ 19 Функция interleave()"""
 
-def interleave(*args):
-    for arg in zip(*args):
-        yield from (arg)
+# def interleave(*args):
+#     for arg in zip(*args):
+#         yield from (arg)
 
-numbers = [1, 2, 3]
-squares = [1, 4, 9]
-qubes = [1, 8, 27]
-print(*interleave(numbers, squares, qubes))
+# numbers = [1, 2, 3]
+# squares = [1, 4, 9]
+# qubes = [1, 8, 27]
+# print(*interleave(numbers, squares, qubes))
+
+"""БЛОК 10.7 Генераторы. Часть 3"""
+
+"""№ 6 Функция parse_ranges()"""
+
+# def parse_ranges(inp):
+#     ranges = inp.split(',')
+#     grani = (rang.split('-') for rang in ranges)
+#     ranges = (range(int(a), int(b) + 1) for a, b in grani)
+#     for rang in ranges:
+#         yield from rang
+
+# print(*parse_ranges('1-10,2-10'))
+
+"""№ 7 Функция filter_names()"""
+
+# def filter_names(names, ignore_char, max_names):
+#     name_list = (
+#         name for name in names
+#         if name[0].lower() != ignore_char.lower() and
+#         name.isalpha()
+#         )
+#     if max_names > len(names):
+#         yield from name_list
+#     else:
+#         for _ in range(max_names):
+#             yield next(name_list)
+
+# data = ['Di6ma', 'Ti4mur', 'Ar5thur', 'Anri7620', 'Ar3453ina', '345German',
+# 'Ruslan543', 'Soslanfsdf123', 'Geo000000r']
+# print(*filter_names(data, 'A', 100))
+
+"""№ 8 Инвестиции"""
+
+# with open('data.csv', encoding='UTF-8') as inp_csv:
+#     data = (line.strip().split(',') for line in inp_csv)
+#     next(data)
+#     summ = sum(int(line[1]) for line in data if line[2] == 'a')
+# print(summ)
+
+"""№ 9 Функция years_days()"""
+
+# from datetime import date, timedelta
+
+# def years_days(year):
+#     td = timedelta(days=1)
+#     dat = date(year, 1, 1)
+#     while dat.year == year:
+#         yield dat
+#         dat += td
+
+# dates = years_days(1900)
+
+# print(*dates)
+
+"""№ 10 Функция nonempty_lines()"""
+
+# def nonempty_lines(file):
+#     with open(file, encoding='UTF-8') as inp_file:
+#         lines = (line.strip() for line in inp_file if line.strip() != '')
+#         for line in lines:
+#             if len(line) > 25:
+#                 yield '...'
+#             else:
+#                 yield line
+
+# lines = nonempty_lines('file1.txt')
+# print(next(lines))
+# print(next(lines))
+# print(next(lines))
+
+"""№ 11 Функция txt_to_dict()"""
+
+# def txt_to_dict():
+#     with open('planets.txt', encoding='UTF-8') as inp_file:
+#         element = []
+#         elements = []
+#         for line in inp_file:
+#             line = line.strip().split()
+#             if line != []:
+#                 element.append((line[0], line[2]))
+#             else:
+#                 yield dict(element)
+#                 elements.append(dict(element))
+#                 element = []
+#         yield dict(element)
+
+# planets = txt_to_dict()
+
+# print(*planets)
+
+"""№ 19 Функция unique()"""
+
+# def unique(iterable):
+#     it_set = set()
+#     for el in iterable:
+#         if el not in it_set:
+#             yield el
+#             it_set.add(el)
+
+
+# iterator = iter('111222333')
+# uniques = unique(iterator)
+# print(next(uniques))
+# print(next(uniques))
+# print(next(uniques))
+
+"""№ 20 Функция stop_on()"""
+
+# def stop_on(iterable, obj):
+#     try:
+#         iterable = iter(iterable)
+#         el = next(iterable)
+#         while el != obj:
+#             yield el
+#             el = next(iterable)
+#     except StopIteration:
+#         pass
+
+# iterator = iter('beegeek')
+# print(*stop_on(iterator, 'a'))
+
+"""№ 21 Функция with_previous()"""
+
+# def with_previous(iterable):
+#     iterable = list(iterable)
+#     iter2 = iter(iterable)
+#     iterable = iter(iterable)
+#     yield (next(iterable), None)
+#     yield from ((el1, next(iter2)) for el1 in iterable)
+
+# numbers = [1, 2, 3, 4, 5]
+# print(*with_previous(numbers))
+
+"""№ 22 Функция pairwise()"""
+
+# def pairwise(iterable):
+#     it = list(iterable)
+#     iter2 = iter(it)
+#     iterable = iter(it)
+#     next(iter2)
+#     for el1 in iterable:
+#         try:
+#             yield (el1, next(iter2))
+#         except StopIteration:
+#             yield (it[-1], None)
+
+
+
+# iterator = iter('stepik')
+# print(*pairwise(iterator))
+
+"""№ 23 Функция around()"""
+
+# def around(iterable):
+#     it = list(iterable)
+#     iter_prev = iter(it)
+#     iter_post = iter(it)
+#     iterable = iter(it)
+#     next(iter_post)
+#     yield (None, next(iterable), next(iter_post))
+#     for el in iterable:
+#         try:
+#             yield (next(iter_prev), el, next(iter_post))
+#         except StopIteration:
+#             yield(it[-2], it[-1], None)
+
+# numbers = [1, 2, 3, 4, 5]
+# print(*around(numbers))

@@ -1,0 +1,1 @@
+print(*nonempty_lines('file4.txt'))

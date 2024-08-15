@@ -1,0 +1,3 @@
+planets = txt_to_dict()
+
+print(*planets)

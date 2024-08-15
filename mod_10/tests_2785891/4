@@ -1,0 +1,3 @@
+dates = years_days(1900)
+
+print(*dates)

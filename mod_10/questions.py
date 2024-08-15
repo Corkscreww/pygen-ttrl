@@ -1,7 +1,4 @@
-from sys import getsizeof
-generator = (char.upper() for char in 'stepik')
-print(getsizeof(generator))
-next(generator)
-next(generator)
-next(generator)
-print(list(generator))
+numbers = range(5)
+new_numbers = numbers[::-1]
+print(*new_numbers)
+print(type(new_numbers))
