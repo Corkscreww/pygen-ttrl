@@ -1,4 +1,2 @@
-numbers = range(5)
-new_numbers = numbers[::-1]
-print(*new_numbers)
-print(type(new_numbers))
+from itertools import islice
+print(*islice('stepik', 0, 6, 2))

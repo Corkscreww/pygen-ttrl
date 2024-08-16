@@ -1,0 +1,3 @@
+iterator = tuple('stepik')
+
+print(take_nth(iterator, 6))

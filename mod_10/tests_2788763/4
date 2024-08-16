@@ -1,0 +1,3 @@
+iterator = iter([18, 21, 14, 72, 73, 18, 20, 101, 102, 110])
+
+print(first_largest(iterator, 105))

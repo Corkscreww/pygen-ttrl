@@ -1,0 +1,3 @@
+iterator = iter([998])
+
+print(first_largest(iterator, 999))

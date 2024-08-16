@@ -721,3 +721,143 @@
 
 # numbers = [1, 2, 3, 4, 5]
 # print(*around(numbers))
+
+"""БЛОК 18.8 itertools. Часть 1."""
+
+"""№ 15 tabulate()"""
+
+# from itertools import count
+
+# def tabulate(func):
+#     yield from (func(arg) for arg in count(1))
+
+# func = lambda x: x + 10
+# values = tabulate(func)
+# print(next(values))
+# print(next(values))
+# print(next(values))
+
+"""№ 16 Функция factorials()"""
+
+# from itertools import accumulate
+# from math import factorial
+# import operator
+
+# def factorials(n):
+#     yield from accumulate(range(1, n + 1), func=operator.mul)
+
+# numbers = factorials(2)
+# print(next(numbers))
+# print(next(numbers))
+
+"""№ 17 Функция alnum_sequence()     - НЕ РЕШИЛ"""
+
+# from itertools import starmap, cycle
+
+# def alnum_sequence():
+#     numbers = cycle([range(1, 27)])
+#     letters = cycle(([chr(num + 64) for num in range(1, 27)]))
+#     yield next(numbers)
+    # yield next(letters)
+#     cycle_iter = cycle([0, 1])
+#     print(next(cycle_iter), next(cycle_iter), next(cycle_iter), next(cycle_iter),
+# next(cycle_iter))
+
+# alnum = alnum_sequence()
+# # print(next(alnum))
+# print(*(next(alnum) for _ in range(2)))
+# pass
+
+"""№ 18 Функция roundrobin()    - НЕ РЕШИЛ"""
+
+# from itertools import starmap
+
+# def roundrobin(*args):
+#     for n in zip(args):
+#         print(n)
+
+# print(*roundrobin('abc', 'd', 'ef'))
+
+"""БЛОК 18.9 Модуль itertools. Часть 2"""
+
+"""№ 12 Функция drop_while_negative()"""
+
+# from itertools import dropwhile
+
+# def drop_while_negative(iterable):
+#     yield from (dropwhile(lambda x: x < 0, iterable))
+
+# numbers = [-3, -2, -1, 0, 1, 2, 3]
+# print(*drop_while_negative(numbers))
+
+"""№ 13 Функция drop_this()"""
+
+# from itertools import dropwhile
+
+# def drop_this(iterable, obj):
+#     yield from(dropwhile(lambda x: x == obj, iterable))
+
+# numbers = [0, 0, 0, 1, 2, 3]
+# print(*drop_this(numbers, 0))
+
+"""№ 14 Функция first_true()"""
+
+# from itertools import dropwhile, compress
+
+# def first_true(iterable, predicate):
+#     if predicate is None:
+#         predicate = bool
+#     return list(dropwhile(lambda x: not predicate(x), iterable))[0]
+
+# numbers = (0, 0, 0, 69, 1, 1, 1, 2, 4, 5, 6, 10, 100, 200)
+# print(first_true(numbers, None))
+
+"""№ 15 Функция take()"""
+
+# from itertools import compress
+
+# def take(iterable, n):
+#     sel = (True for _ in range(n))
+#     yield from (compress(iterable, sel))
+
+# iterator = iter('beegeek')
+# print(*take(iterator, 1))
+
+"""№ 16 Функция take_nth()"""
+
+# from itertools import islice
+
+# def take_nth(iterable, n):
+#     try:
+#         return next(islice(iterable, n - 1, n))
+#     except StopIteration:
+#         pass
+
+# iterator = iter('beegeek')
+
+# iterator = iter('beegeek')
+
+# print(take_nth(iterator, 7))
+
+"""№ 17 Функция first_largest()"""
+
+from itertools import takewhile
+
+def first_largest(iterable, number):
+    kk = enumerate(list(takewhile(lambda x: x < number, iterable)))
+    res = 0
+    check = False
+    for ind, val in kk:
+        if val < number:
+            check = True
+        res = ind
+    if res != 0:
+        res += 1
+    if check:
+        return res
+    else:
+        return -1
+
+iterator = iter([-400, -100, -102, -334, -5])
+
+print(first_largest(iterator, -6))

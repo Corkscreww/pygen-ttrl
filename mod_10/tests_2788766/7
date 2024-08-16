@@ -1,0 +1,3 @@
+iterator = iter('p')
+
+print(take_nth(iterator, 2))

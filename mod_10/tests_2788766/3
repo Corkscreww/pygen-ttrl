@@ -1,0 +1,3 @@
+iterator = iter('beegeek')
+
+print(take_nth(iterator, 10))
