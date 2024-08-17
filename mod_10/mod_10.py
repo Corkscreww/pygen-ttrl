@@ -841,23 +841,90 @@
 
 """№ 17 Функция first_largest()"""
 
-from itertools import takewhile
+# from itertools import takewhile
 
-def first_largest(iterable, number):
-    kk = enumerate(list(takewhile(lambda x: x < number, iterable)))
-    res = 0
-    check = False
-    for ind, val in kk:
-        if val < number:
-            check = True
-        res = ind
-    if res != 0:
-        res += 1
-    if check:
-        return res
-    else:
-        return -1
+# def first_largest(iterable, number):
+#     kk = enumerate(list(takewhile(lambda x: x < number, iterable)))
+#     res = 0
+#     check = False
+#     for ind, val in kk:
+#         if val < number:
+#             check = True
+#         res = ind
+#     if res != 0:
+#         res += 1
+#     if check:
+#         return res
+#     else:
+#         return -1
 
-iterator = iter([-400, -100, -102, -334, -5])
+# iterator = iter([-400, -100, -102, -334, -5])
 
-print(first_largest(iterator, -6))
+# print(first_largest(iterator, -6))
+
+"""Блок 18.10 Модуль itertools. Часть 3"""
+
+"""№ 13 Функция sum_of_digits()"""
+
+# from functools import reduce
+# from itertools import accumulate, starmap
+
+# def sum_of_digits(iterable):
+#     return reduce(
+#         lambda x, y: int(x) + int(y),
+#         reduce(lambda x,y: str(x) + str(y), iterable)
+#     )
+
+# print(sum_of_digits((1, 2, 3, 4, 5, 6, 7, 8, 9, 10)))
+
+"""№ 14 Функция is_rising()"""
+
+# from itertools import pairwise, starmap
+
+# def is_rising(iterable):
+#     return all(starmap(lambda x, y: x < y, pairwise(iterable)))
+
+# iterator = iter(list(range(100, 200)))
+# print(is_rising(iterator))
+
+"""№ 15 Функция max_pair()"""
+
+# from itertools import starmap, pairwise
+
+# def max_pair(iterable):
+#     return max(starmap(lambda x,y: x + y, pairwise(iterable)))
+
+# iterator = iter([0, 0, 0, 0, 0, 0, 0, 0, 0])
+# print(max_pair(iterator))
+
+"""№ 16 Функция ncycles()"""
+
+# from itertools import tee, starmap, repeat
+
+# def ncycles(iterable, times):
+#     for it in tee(iterable, times):
+#         yield from (it)
+
+# iterator = iter([1])
+# print(*ncycles(iterator, 10))
+
+"""№ 17 Функция grouper()"""
+
+def grouper(iterable, n):
+    try:
+        iterable = iter(iterable)
+        while True:
+            tup = []
+            for i in range(n):
+                tup.append(next(iterable))
+            yield tuple(tup)
+    except StopIteration:
+        if tup:
+            for _ in range(n - len(tup)):
+                tup.append(None)
+            yield tuple(tup)
+
+
+
+iterator = iter([1, 2, 3])
+print(*grouper(iterator, 5))
