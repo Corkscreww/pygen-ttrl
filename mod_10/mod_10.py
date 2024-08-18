@@ -910,21 +910,174 @@
 
 """№ 17 Функция grouper()"""
 
-def grouper(iterable, n):
-    try:
-        iterable = iter(iterable)
-        while True:
-            tup = []
-            for i in range(n):
-                tup.append(next(iterable))
-            yield tuple(tup)
-    except StopIteration:
-        if tup:
-            for _ in range(n - len(tup)):
-                tup.append(None)
-            yield tuple(tup)
+# def grouper(iterable, n):
+#     try:
+#         iterable = iter(iterable)
+#         while True:
+#             tup = []
+#             for i in range(n):
+#                 tup.append(next(iterable))
+#             yield tuple(tup)
+#     except StopIteration:
+#         if tup:
+#             for _ in range(n - len(tup)):
+#                 tup.append(None)
+#             yield tuple(tup)
 
 
 
-iterator = iter([1, 2, 3])
-print(*grouper(iterator, 5))
+# iterator = iter([1, 2, 3])
+# print(*grouper(iterator, 5))
+
+"""БЛОК 10.11 Модуль itertools часть 4"""
+
+"""№ 10 """
+
+from collections import namedtuple
+# from itertools import groupby
+
+# Person = namedtuple('Person', ['name', 'age', 'height'])
+
+# persons = [Person('Tim', 63, 193), Person('Eva', 47, 158),
+#            Person('Mark', 71, 172), Person('Alex', 45, 193),
+#            Person('Jeff', 63, 193), Person('Ryan', 41, 184),
+#            Person('Ariana', 28, 158), Person('Liam', 69, 193)]
+
+# persons.sort(key=lambda x: x.height)
+# groups = groupby(persons, lambda x: x.height)
+
+# for rost, group in groups:
+#     print(f'{rost}: ', end='')
+#     spisok = ''
+#     for person in sorted(list(group)):
+#         spisok += person.name + ', '
+#     print(spisok[:len(spisok) - 2])
+
+"""№ 11"""
+
+# from collections import namedtuple
+# from itertools import groupby, starmap
+
+# Student = namedtuple('Student', ['surname', 'name', 'grade'])
+
+# students = [Student('Гагиев', 'Александр', 10),
+#             Student('Дедегкаев', 'Илья', 11),
+#             Student('Кодзаев', 'Георгий', 10),
+#             Student('Набокова', 'Алиса', 11),
+#             Student('Кораев', 'Артур', 10),
+#             Student('Шилин', 'Александр', 11),
+#             Student('Уртаева', 'Илина', 11),
+#             Student('Салбиев', 'Максим', 10),
+#             Student('Капустин', 'Илья', 11),
+#             Student('Гудцев', 'Таймураз', 11),
+#             Student('Перчиков', 'Максим', 10),
+#             Student('Чен', 'Илья', 11),
+#             Student('Елькина', 'Мария', 11),
+#             Student('Макоев', 'Руслан', 11),
+#             Student('Албегов', 'Хетаг', 11),
+#             Student('Щербак', 'Илья', 10),
+#             Student('Идрисов', 'Баграт', 11),
+#             Student('Гапбаев', 'Герман', 10),
+#             Student('Цивинская', 'Анна', 10),
+#             Student('Туткевич', 'Юрий', 11),
+#             Student('Мусиков', 'Андраник', 11),
+#             Student('Гадзиев', 'Георгий', 11),
+#             Student('Белов', 'Юрий', 11),
+#             Student('Акоева', 'Диана', 11),
+#             Student('Денисов', 'Илья', 11),
+#             Student('Букулова', 'Диана', 10),
+#             Student('Акоева', 'Лера', 11)]
+
+# groups = groupby(sorted(students, key=lambda x: x.name), key=lambda x: x.name)
+# mx = starmap(lambda x, y: (x, len(list(y))), groups)
+
+# print(max(mx, key=lambda x: (x[1]))[0])
+
+"""№ 12 Группы слов"""
+
+# from itertools import groupby
+
+# with open('349/7', encoding='UTF-8') as file:
+#     words = next(file).split()
+
+# groups = groupby(sorted(words, key=lambda x: len(x)), key=lambda x: len(x))
+
+# for leng, words in groups:
+#     print(leng, '->', *words)
+
+"""№ 13 Нет дел"""
+
+# from itertools import groupby
+
+# tasks = [('Отдых', 'поспать днем', 3),
+#         ('Ответы на вопросы', 'ответить на вопросы в дискорде', 1),
+#         ('ЕГЭ Математика', 'доделать курс по параметрам', 1),
+#         ('Ответы на вопросы', 'ответить на вопросы в курсах', 2),
+#         ('Отдых', 'погулять вечером', 4),
+#         ('Курс по ооп', 'обсудить темы', 1),
+#         ('Урок по groupby', 'добавить задачи на программирование', 3),
+#         ('Урок по groupby', 'написать конспект', 1),
+#         ('Отдых', 'погулять днем', 2),
+#         ('Урок по groupby', 'добавить тестовые задачи', 2),
+#         ('Уборка', 'убраться в ванной', 2),
+#         ('Уборка', 'убраться в комнате', 1),
+#         ('Уборка', 'убраться на кухне', 3),
+#         ('Отдых', 'погулять утром', 1),
+#         ('Курс по ооп', 'обсудить задачи', 2)]
+
+# tasks.sort(key=lambda x: x[0])
+# tasks = groupby(tasks, key=lambda x: x[0])
+# for delo, acts in tasks:
+#     print(delo + ':')
+#     for act in sorted(list(acts), key=lambda x: x[2]):
+#         print(f'    {act[2]}. {act[1]}')
+
+"""№ 14 Функция group_anagrams()"""
+
+# from itertools import groupby
+
+# def group_anagrams(words):
+#     words.sort(key=lambda x: sorted(list(x)))
+#     words = groupby(words, key=lambda x: sorted(list(x)))
+#     result = []
+#     for anogr, wrds in words:
+#         result.append(tuple([word for word in wrds]))
+#     return result
+
+# groups = group_anagrams(['крона', 'сеточка', 'тесачок', 'лучик', 'стоечка', 'норка', 'чулки'])
+
+# print(*groups)
+
+"""№ 15 Функция ranges()"""
+
+# from itertools import groupby, pairwise
+
+# def ranges(numbers):
+#     pairs = pairwise(numbers)
+#     numbers = groupby(pairs, key=lambda x: x[0] == x[1] - 1)
+#     result = []
+#     pred = False
+#     buf = None
+#     for gr, nm in numbers:
+#         diap = list(nm)
+#         if gr:
+#             if buf and not pred and diap[0][0] != buf:
+#                 result.append((buf, buf))
+#             pass
+#             result.append((diap[0][0], diap[-1][-1]))
+#             pred = True
+#             pass
+#         else:
+#             for dp in diap:
+#                 if not pred:
+#                     result.append((dp[0], dp[0]))
+#             pred = False
+#             buf = diap[0][1]
+
+#     if not gr:
+#         result.append((dp[1], dp[1]))
+
+#     return result
+# numbers = list(range(10, 21)) + [30] + list(range(35, 101)) + list(range(1000, 1001))
+
+# print(ranges(numbers))

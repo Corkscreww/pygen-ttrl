@@ -1,0 +1,3 @@
+groups = group_anagrams(['evil', 'father', 'book', 'stepik', 'beegeek'])
+
+print(*groups)

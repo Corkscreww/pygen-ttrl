@@ -1,0 +1,3 @@
+groups = group_anagrams(['катет', 'кета'])
+
+print(*groups)

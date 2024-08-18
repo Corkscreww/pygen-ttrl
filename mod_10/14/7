@@ -1,0 +1,3 @@
+groups = group_anagrams(['клоун', 'яяя', 'жжж', 'бббб', 'кулон'])
+
+print(*groups)
