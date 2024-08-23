@@ -110,29 +110,161 @@
 
 """№ 13 Популярность"""
 
-import re
+# import re
 
-with open('13/7', encoding='UTF-8') as inp_file:
-    data = inp_file.readlines()
-    bg = 'beegeek'
+# with open('13/7', encoding='UTF-8') as inp_file:
+#     data = inp_file.readlines()
+#     bg = 'beegeek'
 
-pat3 = r'^beegeek.*beegeek$'
-pat2 = r'(^beegeek.*)|(.*beegeek$)'
-pat1 = r'beegeek'
-ball = 0
+# pat3 = r'^beegeek.*beegeek$'
+# pat2 = r'(^beegeek.*)|(.*beegeek$)'
+# pat1 = r'beegeek'
+# ball = 0
 
-for string in data:
-    string = string.strip()
-    bal3 = re.search(pat3, string)
-    bal2 = re.search(pat2, string)
-    bal1 = re.search(pat1, string)
-    if bal3:
-        ball += 3
-    elif bal2:
-        ball += 2
-    elif bal1:
-        ball += 1
-    elif string == 'beegeek':
-        ball += 2
+# for string in data:
+#     string = string.strip()
+#     bal3 = re.search(pat3, string)
+#     bal2 = re.search(pat2, string)
+#     bal1 = re.search(pat1, string)
+#     if bal3:
+#         ball += 3
+#     elif bal2:
+#         ball += 2
+#     elif bal1:
+#         ball += 1
+#     elif string == 'beegeek':
+#         ball += 2
 
-print(ball)
+# print(ball)
+
+"""№ 19 Уважение"""
+
+# import re
+# from re import IGNORECASE, MULTILINE
+
+# text = 'здравствуйте, вы не заняты?'
+
+# pattern = r'^Здравствуйте|^Добрый день|^Доброе утро|^Добрый вечер'
+# if re.search(pattern, text, flags=IGNORECASE | MULTILINE):
+#     print(True)
+# else:
+#     print(False)
+
+"""№ 20 Социальные сети"""
+
+# import re
+# from re import IGNORECASE
+
+# with open('20/4', encoding='UTF-8') as inp_file:
+#     data = inp_file.readlines()
+
+# cnt = 0
+# for string in data:
+#     string = string.strip()
+#     if re.search(r'beegeek', string, flags=IGNORECASE):
+#         cnt += 1
+
+# print(cnt)
+
+"""Блок 11.2 Модуль re часть 2"""
+
+"""№ 11 Подслова"""
+
+# import re
+
+# with open('211/1', encoding='UTF-8') as inp_file:
+#     data = inp_file.readlines()
+
+# cnt = 0
+
+# text = data[0].strip()
+# word = data[1].strip()
+# words = re.findall(rf'\w({word})\w', text)
+
+# print(len(words))
+
+"""№ 12 Слова"""
+
+# import re
+
+# with open('212/5', encoding='UTF-8') as inp_file:
+#     data = inp_file.readlines()
+
+# cnt = 0
+
+# text = data[0].strip()
+# word = data[1].strip()
+# words = re.findall(rf'(\W({word})\W)|(^{word}\W)|(\W{word}$)', text)
+
+# print(len(words))
+
+"""№ 13 Одинаковые и разные"""
+
+# import re
+# from re import IGNORECASE
+
+# with open('213/1', encoding='UTF-8') as inp_file:
+#     data = inp_file.readlines()
+
+# cnt = 0
+
+# word = data[0].strip()[:-2] + '[sz]e'
+# text = data[1].strip()
+
+# words = re.findall(rf'\b{word}\b', text,
+#                    flags=IGNORECASE)
+
+# print(len(words))
+
+"""№ 14 Одинаковые и разные"""
+
+# import re
+# from re import IGNORECASE
+
+# with open('214/3', encoding='UTF-8') as inp_file:
+#     data = inp_file.readlines()
+
+# cnt = 0
+
+# word = data[0].strip()[:-2] + 'u?r'
+# text = data[1].strip()
+
+# words = re.findall(rf'\b{word}\b', text,
+#                    flags=IGNORECASE)
+
+# print(len(words))
+
+"""№ 15 Функция abbreviate()"""
+
+# import re
+
+# def abbreviate(phrase):
+#     pattern = r'\b.|[A-Z]'
+#     words = re.findall(pattern, phrase)
+#     result = ''
+#     for word in words:
+#         if word.strip():
+#             result += word[0].upper()
+#     return result
+
+# print(abbreviate('javaScript object notation'))
+# print(abbreviate('frequently asked questions'))
+# print(abbreviate('JS game sec'))
+# print(abbreviate('gaveOver GameStarted happyEnd happyend'))
+
+"""№ 16 HTML"""
+
+# import re
+# from re import IGNORECASE
+
+# with open('216/5', encoding='UTF-8') as inp_file:
+#     data = inp_file.readlines()
+
+# pattern = r'href="(.*)">(.*)</a>'
+
+# for string in data:
+#     htm = re.search(pattern, string)
+
+#     if htm:
+#         print(htm.group(1), end=', ')
+#         print(htm.group(2))
