@@ -268,3 +268,97 @@
 #     if htm:
 #         print(htm.group(1), end=', ')
 #         print(htm.group(2))
+
+"""№ 17 HTML           НА ПОТОМ"""
+
+# import re
+# from re import IGNORECASE
+
+# with open('217/1', encoding='UTF-8') as inp_file:
+#     data = inp_file.read()
+
+# tag = r'<(?P<tag>\w+)'
+# propert = f'(?P<prop>\w+)='
+# tag_pro = r'<(?P<tag>.\w+) (?P<prop>\w+)='
+# res = re.findall(tag, data)
+# rezp = re.findall(propert, data)
+# rezall = re.findall(tag_pro, data)
+# m_tag = re.search(tag, data)
+# m_prop = re.search(propert, data)
+# m_all = re.search(tag_pro, data)
+
+
+# print(m_tag.group(1))
+# print(m_prop.group(1))
+# pass
+
+"""Блок 11.8 Модуль re Часть 3"""
+
+"""№ 9 Функция normalize_jpeg()"""
+
+# import re
+# from re import sub
+
+# def normalize_jpeg(filename):
+#     return sub(r'.\w{3,4}$', r'.jpg', filename)
+
+# print(normalize_jpeg('windows11.jpg'))
+
+"""№ 10 Функция normalize_whitespace()"""
+
+# from re import sub
+
+# def normalize_whitespace(string):
+#     return sub(r' {2,}', r' ', string)
+
+# print(normalize_whitespace('Тут Тут н е т л и шних пробелов       !'))
+
+"""№ 11 Ключевые слова"""
+
+# import keyword
+# from re import sub, IGNORECASE
+
+# text = 'True and False - that is the question'
+
+# for word in keyword.kwlist:
+#     text = sub(rf'\b{word}\b', r'<kw>', text, flags=IGNORECASE)
+
+# print(text)
+
+"""№ 12 Первые буквы"""
+
+# from re import sub
+
+# text = 'Hi, everyone. Lets start a lesson!'
+
+# print(sub(r'\b(\w)(\w)', r'\2\1', text))
+
+"""№ 13 Умножение строк   ПОТОМ"""
+
+# from re import sub
+# import re
+
+# text = '0(s)he0(be)lie0(ve)d'
+# pattern = r'(\d+)(\(.*\))'
+
+# def multiply_words(match):
+#     n = int(match.group(1))
+#     word = match.group(2)
+#     return word * n
+
+# n = re.findall(pattern, text)
+
+# print(sub(pattern, multiply_words, text))
+
+"""№ 14 Повторяющиеся слова   ПОТОМ"""
+
+# from re import sub
+
+# text = 'beegeek,beegeek,beegeek! python python.. Python.. stepik?stepik?stepik'
+# pattern = r'(\.w).*(\1)+'
+
+# print(sub(pattern, r'\1', text))
+
+"""№ 15 Комментарии"""
+
+from re import sub
