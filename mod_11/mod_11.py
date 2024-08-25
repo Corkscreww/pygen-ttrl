@@ -359,6 +359,75 @@
 
 # print(sub(pattern, r'\1', text))
 
-"""№ 15 Комментарии"""
+"""№ 15 Комментарии 🌶️🌶️    ПОТОМ"""
 
-from re import sub
+# from re import sub
+# import re
+
+# pattern_one_string = r'(\n *)?(#+ .*\n)'
+# pattern_end_string = r'(\n.*)?(  # .*)$'
+# pattern_multistring = r'\n( *)""".*?"""\n'
+
+# with open('315/1', encoding='UTF-8') as inp_file:
+#     data = inp_file.read()
+
+# one = re.findall(pattern_one_string, data, flags=re.M)
+# end1 = re.findall(pattern_end_string, data, flags=re.M)
+
+# multi1 = re.findall(pattern_multistring, data)#, flags=re.S)
+# multi2 = re.search(pattern_multistring, data)#, flags=re.S)
+
+# data = sub(pattern_one_string, r'\n', data, flags=re.M)
+# data = sub(pattern_end_string, '', data, flags=re.M)
+# data = sub(pattern_multistring, r'\n', data, flags=re.S)
+
+
+# print(data)
+
+"""БЛОК 11.9 Модуль re. Часть 4"""
+
+"""№ 10 Точка с запятой"""
+
+# import re
+
+# with open('410/14', encoding='UTF-8') as inp_file:
+#     data = inp_file.read()
+
+# pattern = r'\s*[.,;]\s*'
+
+# print(*re.split(pattern, data))
+
+"""№ 11 Логическое выражение"""
+
+# import re
+
+# with open('411/15', encoding='UTF-8') as inp_file:
+#     data = inp_file.read()
+
+# pattern = r'\s*\|\s*|\s*\&\s*|\s*and\s*|\s*or\s*'
+
+# print(*re.split(pattern, data), sep=', ')
+
+"""№ 12 Функция multiple_split()"""
+
+# import re
+
+# def multiple_split(string, delimiters):
+#     pattern = '|'.join(map(re.escape, delimiters))
+#     pass
+#     return re.split(pattern, string)
+
+# print(multiple_split('There"was/a"small/boy"of/Quebec', ['/', '"']))
+
+"""№ 19 Сумма чисел"""
+
+# import re
+
+# with open('419/15', encoding='UTF-8') as inp_file:
+#     st, en = map(int, inp_file.readline().split())
+#     data = inp_file.readline()
+
+# pattern = re.compile(r'\D?(\d+)\D?')
+# result = sum(map(int, pattern.findall(data, st, en)))
+
+# print(result)
