@@ -1,0 +1,1 @@
+['stepik', 'python', 'regular', 'expressions', 'split']

@@ -1,0 +1,1 @@
+['stepik', 'python-dima', 'roma', 'jenya-timur', '', 'arthur']

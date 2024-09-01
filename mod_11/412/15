@@ -1,0 +1,1 @@
+print(multiple_split('There"was/a"small/boy"of/Quebec', ['/', '"']))

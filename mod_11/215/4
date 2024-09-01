@@ -1,0 +1,1 @@
+print(abbreviate('gaveOver GameStarted happyEnd happyend'))

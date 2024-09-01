@@ -1,0 +1,11 @@
+_DI400Y = _days_before_year(401)  # number of days in 400 years
+_DI100Y = _days_before_year(101)  #    "    "   "   " 100   "
+_DI4Y   = _days_before_year(5)  #    "    "   "   "   4   "
+
+# A 4-year cycle has an extra leap day over what we'd get from pasting
+# together 4 single years.
+assert _DI4Y == 4 * 365 + 1
+
+# Similarly, a 400-year cycle has an extra leap day over what we'd get from
+# pasting together 4 100-year cycles.
+assert _DI400Y == 4 * _DI100Y + 1

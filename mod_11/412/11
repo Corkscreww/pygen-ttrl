@@ -1,0 +1,1 @@
+print(multiple_split('beegeek[python(stepik^test', ['[', '(', '^']))

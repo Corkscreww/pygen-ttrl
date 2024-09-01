@@ -1,0 +1,1 @@
+['Timur', 'Arthur', 'Dima', 'Anri']

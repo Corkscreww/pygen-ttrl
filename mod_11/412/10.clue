@@ -1,0 +1,1 @@
+['ivan', 'ivanov', 'company', 'com']

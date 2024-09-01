@@ -1,0 +1,1 @@
+http://browsehappy.com/, upgrade to a different browser

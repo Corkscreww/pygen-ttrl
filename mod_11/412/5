@@ -1,0 +1,1 @@
+print(multiple_split('stepik__python@dima*roma*jenya----timur###arthur###bee', ['----', '__', '*', '###', '@']))

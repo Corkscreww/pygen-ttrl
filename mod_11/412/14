@@ -1,0 +1,1 @@
+print(multiple_split('Two@Owls@and@a@Hen', ['@', '*', '+', ':', '-', '.', ';']))

@@ -1,0 +1,18 @@
+class Random(_random.Random):
+    """Random number generator base class used by bound module functions.
+    Used to instantiate instances of Random to get generators that don't
+    share state.
+    Class Random can also be subclassed if you want to use a different basic
+    generator of your own devising: in that case, override the following
+    methods:  random(), seed(), getstate(), and setstate().
+    Optionally, implement a getrandbits() method so that randrange()
+    can cover arbitrarily large ranges."""
+
+    VERSION = 3  # used by getstate/setstate
+
+    def __init__(self, x=None):
+        """Initialize an instance.
+        Optional argument x controls seeding, as for Random.seed()."""
+
+        self.seed(x)
+        self.gauss_next = None
