@@ -91,3 +91,136 @@
 # print(Pet.first_pet().name)
 # print(Pet.last_pet().name)
 # print(Pet.num_of_pets())
+
+# '''4.8.1 Класс Processor'''
+
+# from functools import singledispatchmethod
+
+# class Processor:
+#     def __init__(self):
+#         pass
+
+#     @singledispatchmethod
+#     def process(obj):
+#         raise TypeError('Аргумент переданного типа не поддреживается')
+
+#     # @staticmethod
+#     @process.register
+#     def p_fl(obj: int):
+#         return obj * 2
+
+#     # @staticmethod
+#     @process.register
+#     def p_fl(obj: float):
+#         return obj * 2
+
+#     # @staticmethod
+#     @process.register
+#     def p_str(obj: str):
+#         return obj.upper()
+
+#     @process.register
+#     def p_tup(obj: tuple):
+#         obj = list(obj)
+#         obj.reverse()
+#         obj = tuple(obj)
+#         return obj
+
+#     @process.register
+#     def p_lis(obj: list):
+#         obj.reverse()
+#         return obj
+
+# try:
+#     Processor.process({1, 2, 3})
+# except TypeError as e:
+#     print(e)
+
+'''№ 4.8.3 Класс Formatter'''
+
+# from functools import singledispatchmethod
+
+# class Formatter:
+#     def __init__(self):
+#         pass
+
+#     @singledispatchmethod
+#     @staticmethod
+#     def format(obj):
+#         raise TypeError('Аргумент переданного типа не поддреживается')
+
+#     @format.register
+#     def f_int(obj: int):
+#         return f'Целое число: {obj}'
+
+#     # @staticmethod
+#     @format.register
+#     def f_fl(obj: float):
+#         return f'Вещественное число: {obj}'
+
+#     # @staticmethod
+#     @format.register
+#     def f_dic(obj: dict):
+#         return f'Пары словаря: {obj}'
+
+#     @format.register
+#     def f_tup(obj: tuple):
+#         return f'Элементы кортежа: {obj}'
+#     @format.register
+#     def f_lis(obj: list):
+#         return f'Элементы списка: {obj}'
+
+# print(Formatter.format(1337))
+# print(Formatter.format(20.77))
+# print()
+# print(Formatter.format([10, 20, 30, 40, 50]))
+# print(Formatter.format(([1, 3], [2, 4, 6])))
+# print()
+# print(Formatter.format({'Cuphead': 1, 'Mugman': 3}))
+# print(Formatter.format({1: 'one', 2: 'two'}))
+# print(Formatter.format({1: True, 0: False}))
+# print()
+# try:
+#     Formatter.format('All them years, Dutch, for this snake?')
+# except TypeError as e:
+#     print(e)
+
+'''№ 4.8.4 Класс BirthInfo🌶️'''
+
+# from functools import singledispatchmethod
+# from datetime import date
+
+
+# class BirthInfo:
+#     @singledispatchmethod
+#     def __init__(self, birth_date):
+#         raise TypeError('Аргумент переданного типа не поддерживается')
+
+#     @__init__.register(date)
+#     def init_datetime(self, birth_date):
+#         self.birth_date = birth_date
+
+#     @__init__.register(str)
+#     def init_str(self, birth_date):
+#         self.birth_date = date.fromisoformat(birth_date)
+
+#     @__init__.register(list)
+#     @__init__.register(tuple)
+#     def init_list_tuple(self, birth_date):
+#         self.birth_date = date(*birth_date)
+
+#     @property
+#     def age(self):
+#         return self.current_age(self.birth_date, date.today())
+
+#     @staticmethod
+#     def current_age(birth_date, today):
+#         age = (today.year - birth_date.year) - 1
+#         age += (today.month, today.day) >= (birth_date.month, birth_date.day)
+#         return age
+
+# birthday = date(2020, 9, 18)
+# today = date.today()
+# birthinfo = BirthInfo(birthday)
+# true_age = BirthInfo.current_age(birthday, today)
+# print(birthinfo.age == true_age)
