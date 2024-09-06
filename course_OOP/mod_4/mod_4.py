@@ -219,8 +219,40 @@
 #         age += (today.month, today.day) >= (birth_date.month, birth_date.day)
 #         return age
 
+# from datetime import MAXYEAR
+
 # birthday = date(2020, 9, 18)
 # today = date.today()
 # birthinfo = BirthInfo(birthday)
 # true_age = BirthInfo.current_age(birthday, today)
 # print(birthinfo.age == true_age)
+
+
+'''№ 5.1.1 Класс Config'''
+
+# class Config:
+#     _instance = None
+
+#     def __new__(cls, *args, **kwargs):
+#         if cls._instance is None:
+#             cls._instance = super().__new__(cls)
+#         return cls._instance
+
+#     def __init__(self) -> None:
+#         self.program_name = 'GenerationPy'
+#         self.environment = 'release'
+#         self.loglevel = 'verbose'
+#         self.version = '1.0.0'
+
+
+# config = Config()
+# print(config.program_name)
+# print(config.environment)
+# print(config.loglevel)
+# print(config.version)
+
+# config1 = Config()
+# config2 = Config()
+# config3 = Config()
+# print(config1 is config2)
+# print(config1 is config3)
