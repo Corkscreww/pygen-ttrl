@@ -45,7 +45,7 @@
 
 # book = Book('Изучаем Python', 'Марк Лутц', 2021)
 # print(book)
-# print(repr(book))
+# print(repr(book)
 
 
 '''№ 5.1.4 Класс IPAddress'''
@@ -124,48 +124,170 @@
 # print(a == pair4)
 # print(a == pair5)
 
-'''№ 5.3.3 Класс Month'''
+'''№ 5.3.3 Класс Month  ???????????????? ошибка с tuple'''
 
-from functools import total_ordering
+# from functools import total_ordering
 
-@total_ordering
-class Month:
-    def __init__(self, year, month) -> None:
-        self.year = year
-        self.month = month
+# @total_ordering
+# class Month:
+#     def __init__(self, year, month) -> None:
+#         self.year = year
+#         self.month = month
 
-    @property
-    def dat(self):
-        return (self.year, self.month)
+#     @property
+#     def dat(self):
+#         return (self.year, self.month)
 
-    def __repr__(self):
-        return f'Month({self.year}, {self.month})'
+#     def __repr__(self):
+#         return f'Month({self.year}, {self.month})'
 
-    def __str__(self) -> str:
-        return f'{self.year}-{self.month}'
+#     def __str__(self) -> str:
+#         return f'{self.year}-{self.month}'
 
-    def __eq__(self, value: object) -> bool:
-        if isinstance(value, Month):
-            a = self.dat()
-            b = value.dat()
-            return
-        if isinstance(value, tuple) and len(value) == 2:
-            return self.dat() == value
-        return NotImplemented
+#     def __eq__(self, value: object) -> bool:
+#         if isinstance(value, Month):
+#             a = self.dat()
+#             b = value.dat()
+#             return
+#         if isinstance(value, tuple) and len(value) == 2:
+#             return self.dat() == value
+#         return NotImplemented
 
-    def __lt__(self, value: object) -> bool:
-        if isinstance(value, Month):
-            if self.year < value.year:
-                return True
-            if self.year == value.year:
-                return self.month < value.month
-        if isinstance(value, tuple):
-            new = Month(value)
-            return self < new
-        return NotImplemented
+#     def __lt__(self, value: object) -> bool:
+#         if isinstance(value, Month):
+#             if self.year < value.year:
+#                 return True
+#             if self.year == value.year:
+#                 return self.month < value.month
+#         if isinstance(value, tuple):
+#             new = Month(value)
+#             return self < new
+#         return NotImplemented
 
-print(Month(1999, 12) == Month(1999, 12))
-print(Month(1999, 12) < Month(2000, 1))
-print(Month(1999, 12) > Month(2000, 1))
-print(Month(1999, 12) <= Month(1999, 12))
-print(Month(1999, 12) >= Month(2000, 1))
+# print(Month(1999, 12) == Month(1999, 12))
+# print(Month(1999, 12) < Month(2000, 1))
+# print(Month(1999, 12) > Month(2000, 1))
+# print(Month(1999, 12) <= Month(1999, 12))
+# print(Month(1999, 12) >= Month(2000, 1))
+
+'''№ 5.4.3 Класс Vector'''
+
+# from math import sqrt
+
+
+# class Vector:
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+
+#     def __repr__(self) -> str:
+#         return f'Vector({self.x}, {self.y})'
+
+#     def __str__(self) -> str:
+#         return f'({self.x}, {self.y})'
+
+#     def __pos__(self):
+#         return Vector(self.x, self.y)
+
+#     def __neg__(self):
+#         return Vector(-self.x, -self.y)
+
+#     def __abs__(self):
+#         return sqrt(self.x ** 2 + self.y ** 2)
+
+
+# vector = Vector(3, -4)
+# print(+vector)
+# print(-vector)
+# print(abs(vector))
+
+
+'''№ 5.4.5  Класс Matrix 🌶️🌶️'''
+
+
+# class Matrix:
+#     def __init__(self, rows, cols, value=0):
+#         self.rows = rows
+#         self.cols = cols
+#         self.value = value
+#         self.matrix = []
+#         for _ in range(rows):
+#             row = []
+#             for __ in range(cols):
+#                 row.append(value)
+#             self.matrix.append(row)
+#         # self.matrix = [
+#         #     [self.value for _ in range(self.cols)] for __ in range(self.rows)
+#         # ]
+
+#     def __repr__(self) -> str:
+#         return f'Matrix({self.rows}, {self.cols})'
+
+#     def __str__(self) -> str:
+#         max_len = 0
+#         for row in self.matrix:
+#             mx = max(row)
+#             if max_len < len(str(mx)):
+#                 max_len = len(str(mx))
+#         result = ''
+#         for row in self.matrix:
+#             for el in row:
+#                 result += str(el).rjust(max_len+1)
+#             result += '\n'
+#         return result[:-1]
+
+#     def get_value(self, row, col):
+#         return self.matrix[row][col]
+
+#     def set_value(self, row, col, value):
+#         pass
+#         self.matrix[row][col] = value
+
+#     def new_matrix(self, positive=True, trans=False, rnd=False, ndig=0):
+#         if trans:
+#             new_matr = Matrix(self.cols, self.rows)
+#             for i in range(new_matr.rows):
+#                 for j in range(new_matr.cols):
+#                     new_matr.set_value(i, j, self.get_value(j, i))
+#                     pass
+#         else:
+#             new_matr = Matrix(self.rows, self.cols)
+
+#             if positive:
+#                 k = 1
+#             else:
+#                 k = -1
+
+#             for i in range(len(self.matrix)):
+#                 for j in range(len(self.matrix[0])):
+#                     if rnd:
+#                         new_matr.set_value(
+#                             i, j, round(self.get_value(i, j), ndig)
+#                         )
+#                     else:
+#                         new_matr.set_value(i, j, self.get_value(i, j) * k)
+
+#         return new_matr
+
+#     def __pos__(self):
+#         return self.new_matrix()
+
+#     def __neg__(self):
+#         return self.new_matrix(positive=False)
+
+#     def __invert__(self):
+#         return self.new_matrix(trans=True)
+
+#     def __round__(self, n=0):
+#         return self.new_matrix(rnd=True, ndig=n)
+
+
+# matrix = Matrix(2, 3, 1)
+
+# plus_matrix = +matrix
+# minus_matrix = -matrix
+# invert_matrix = ~matrix
+
+# print(plus_matrix.cols, plus_matrix.rows)
+# print(minus_matrix.cols, minus_matrix.rows)
+# print(invert_matrix.cols, invert_matrix.rows)
