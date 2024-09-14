@@ -291,3 +291,118 @@
 # print(plus_matrix.cols, plus_matrix.rows)
 # print(minus_matrix.cols, minus_matrix.rows)
 # print(invert_matrix.cols, invert_matrix.rows)
+
+# '''№ 5.5.3 Класс SuperString'''
+
+# class SuperString:
+#     def __init__(self, string) -> None:
+#         self.string = string
+
+#     def __str__(self) -> str:
+#         return f'{self.string}'
+
+#     def __add__(self, other):
+#         if isinstance(other, SuperString):
+#             return self.string + other.string
+#         return NotImplemented
+
+#     def __mul__(self, other):
+#         return SuperString(self.string * other)
+
+#     def __rmul__(self, other):
+#         return self * other
+
+#     def __truediv__(self, other):
+#         return SuperString(self.string[:len(self.string) // other])
+
+#     def __lshift__(self, other):
+#         if other < len(self.string):
+#             return SuperString(self.string[:-other])
+#         else:
+#             return SuperString('')
+
+#     def __rshift__(self, other):
+#         if other < len(self.string):
+#             return SuperString(self.string[other:])
+#         return SuperString('')
+
+# s = SuperString('beegeek')
+# print(s << 4)
+# print(s >> 3)
+
+'''№ 5.6.1 Класс Calculator'''
+
+
+# class Calculator:
+#     def __init__(self) -> None:
+#         pass
+
+#     def __call__(self, a, b, operation):
+#         operations = {
+#             '+': lambda x,y: x+y,
+#             '-': lambda x,y: x-y,
+#             '*': lambda x,y: x*y,
+#             '/': lambda x,y: x/y,
+#         }
+#         if b == 0:
+#             raise ValueError('Деление на ноль невозможно')
+#         if isinstance(a, float | int) and isinstance(b, float | int):
+#             return operations[operation](a, b)
+
+# calculator = Calculator()
+# try:
+#     print(calculator(10, 0, '/'))
+# except ValueError as e:
+#     print(e)
+
+'''№ 5.7.2 класс Temperature'''
+
+# class Temperature:
+#     def __init__(self, temperature):
+#         self.temperature_c = temperature
+#         self.temperature_f = self.to_fahrenheit()
+
+#     def to_fahrenheit(self):
+#         return (self.temperature_c * 9 + 160) / 5
+
+#     @classmethod
+#     def from_fahrenheit(cls, temperature):
+#         temperature = 5 * (temperature - 32) / 9
+#         return cls(temperature)
+
+#     def __str__(self):
+#         return f'{round(self.temperature_c, 2)}°C'
+   
+#     def __bool__(self):
+#         return self.temperature_c > 0
+
+#     def __int__(self):
+#         return int(self.temperature_c)
+
+#     def __float__(self):
+#         return self.temperature_c
+
+
+# t = Temperature.from_fahrenheit(41)
+# print(t)
+# print(int(t))
+# print(float(t))
+# print(t.to_fahrenheit())
+
+'''№ 5.8.5 Класс AttrsNumberObject'''
+
+class AttrsNumberObject:
+    def __init__(self, **kwargs):
+        for attr in kwargs:
+            setattr(self, attr, kwargs[attr])
+        self.attrs_num = len(self.__dict__) + 1
+
+    def __setattr__(self, attr, value):
+        object.__setattr__(self, attr, value)
+        self.attrs_num += 1
+
+
+music_group = AttrsNumberObject(name='Woodkid', genre='pop')
+print(music_group.attrs_num)
+music_group.country = 'France'
+print(music_group.attrs_num)
