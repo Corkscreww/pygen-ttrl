@@ -1,7 +1,7 @@
 """Модуль 11. Регулярные выражения"""
 
 
-print('Hello gnvno!')
+kk('Hello gnvno!')
 A = 1
 B = 10
 

@@ -372,7 +372,7 @@
 
 #     def __str__(self):
 #         return f'{round(self.temperature_c, 2)}°C'
-   
+
 #     def __bool__(self):
 #         return self.temperature_c > 0
 
@@ -391,18 +391,46 @@
 
 '''№ 5.8.5 Класс AttrsNumberObject'''
 
-class AttrsNumberObject:
-    def __init__(self, **kwargs):
-        for attr in kwargs:
-            setattr(self, attr, kwargs[attr])
-        self.attrs_num = len(self.__dict__) + 1
+# class AttrsNumberObject:
+#     def __init__(self, **kwargs):
+#         self.__dict__.update(kwargs)
+#         object.__setattr__(self, 'attrs_num', len(self.__dict__) + 1)
 
-    def __setattr__(self, attr, value):
-        object.__setattr__(self, attr, value)
-        self.attrs_num += 1
+#     def __setattr__(self, attr, value):
+#         self.__dict__['attrs_num'] += 1
+#         object.__setattr__(self, attr, value)
+
+#     def __delattr__(self, name):
+
+#         self.__dict__['attrs_num'] -= 1
+#         object.__delattr__(self, name)
+
+# music_group = AttrsNumberObject(name='Alexandra Savior',
 
 
-music_group = AttrsNumberObject(name='Woodkid', genre='pop')
-print(music_group.attrs_num)
-music_group.country = 'France'
-print(music_group.attrs_num)
+# genre='dream pop')
+# print(music_group.attrs_num)
+# del music_group.genre
+# print(music_group.attrs_num)
+
+'''№ 5.8.7 Класс Const'''
+
+# class Const:
+#     def __init__(self, **kwargs):
+#         self.__dict__.update(kwargs)
+
+#     def __setattr__(self, attr, value):
+#         if attr in self.__dict__:
+#             raise AttributeError('Изменение значения аттрибута невозможно')
+#         else:
+#             object.__setattr__(self, attr, value)
+
+#     def __delattr__(self, attr):
+#         raise AttributeError('Удаление атрибута невозможно')
+
+
+# videogame = Const(name='The Last of Us')
+# try:
+#     del videogame.name
+# except AttributeError as e:
+#     print(e)

@@ -318,5 +318,5 @@
 # result = get_all_values(my_dict, 'top_grade')
 # print(*sorted(result))
 
-print(int(2.7))
-print(round(2.7))
+kk(int(2.7))
+kk(round(2.7))

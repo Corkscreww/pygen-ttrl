@@ -583,8 +583,8 @@ with open('input.txt', encoding='UTF-8') as input_file:
     data = [st.strip() for st in input_file.readlines()]
 
 for word in data:
-    print(word_mod(word))
+    kk(word_mod(word))
 
-print(word_mod.cache_info().hits)
-print(word_mod.cache_info().misses)
-print(word_mod.cache_info().currsize)
+kk(word_mod.cache_info().hits)
+kk(word_mod.cache_info().misses)
+kk(word_mod.cache_info().currsize)
