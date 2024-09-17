@@ -292,6 +292,67 @@
 # print(minus_matrix.cols, minus_matrix.rows)
 # print(invert_matrix.cols, invert_matrix.rows)
 
+'''№ 5.5.1 Класс FoodInfo'''
+
+# class FoodInfo:
+#     def __init__(self, proteins, fats, carbohydrates):
+#         self.proteins = proteins
+#         self.fats = fats
+#         self.carbohydrates = carbohydrates
+
+#     def __repr__(self):
+#         return f'FoodInfo({self.proteins}, {self.fats}, {self.carbohydrates})'
+
+#     def __add__(self, other):
+#         if isinstance(other, int | float):
+#             return FoodInfo(
+#                 self.proteins + other,
+#                 self.fats + other,
+#                 self.carbohydrates + other
+#             )
+#         if isinstance(other, FoodInfo):
+#             return FoodInfo(
+#                 self.proteins + other.proteins,
+#                 self.fats + other.fats,
+#                 self.carbohydrates + other.carbohydrates
+#             )
+#         return NotImplemented
+
+#     def __mul__(self, other):
+#         if isinstance(other, int | float):
+#             return FoodInfo(
+#                 self.proteins * other,
+#                 self.fats * other,
+#                 self.carbohydrates * other
+#             )
+#         return NotImplemented
+
+#     def __truediv__(self, other):
+#         if isinstance(other, int | float):
+#             return FoodInfo(
+#                 self.proteins / other,
+#                 self.fats / other,
+#                 self.carbohydrates / other
+#             )
+#         return NotImplemented
+
+#     def __floordiv__(self, other):
+#         if isinstance(other, int | float):
+#             return FoodInfo(
+#                 self.proteins // other,
+#                 self.fats // other,
+#                 self.carbohydrates // other
+#             )
+#         return NotImplemented
+
+# food1 = FoodInfo(10, 20, 30)
+# food2 = FoodInfo(10, 10, 20)
+# print(food1 + food2)
+# print(food1 * 2)
+# print(food1 / 2)
+# print(food1 // 2)
+
+
 # '''№ 5.5.3 Класс SuperString'''
 
 # class SuperString:
@@ -434,3 +495,8 @@
 #     del videogame.name
 # except AttributeError as e:
 #     print(e)
+
+'''№ 5.9.1 Функция limited_hash'''
+
+def limited_hash(left, right, hash_function):
+
