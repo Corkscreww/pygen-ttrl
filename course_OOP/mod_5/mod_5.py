@@ -496,8 +496,7 @@
 # except AttributeError as e:
 #     print(e)
 
-'''№ 5.9.1 Функция limited_hash''' 🌶️
-
+'''№ 5.9.1 Функция limited_hash🌶️  '''
 # from itertools import cycle
 
 # def limited_hash(left, right, hash_function=hash):
@@ -522,3 +521,49 @@
 # print(hash_function(4))
 # print(hash_function(3))
 # print(hash_function(2))
+
+'''№ 5.10.1 Класс ColoredPoint'''
+
+class ColoredPoint:
+    def __init__(self, iks, ygryk, tsvet):
+        self.iks = iks
+        self.ygryk = ygryk
+        self.tsvet = tsvet
+
+    @property
+    def x(self):
+        return self.iks
+
+    @property
+    def y(self):
+        return self.ygryk
+
+    @property
+    def color(self):
+        return self.tsvet
+
+    def __repr__(self):
+        return f'ColoredPoint({self.iks}, {self.ygryk}, {self.tsvet})'
+
+    def __eq__(self, other):
+        if isinstance(other, ColoredPoint):
+            return
+                self.iks == other.iks and
+                self.ygryk == other.ygryk and
+                self.tsvet == other.tsvet
+
+        return NotImplemented
+
+    def __hash__(self):
+        return hash(self._fields)
+
+    @property
+    def _fields(self):
+        return self.iks, self.ygryk, self.tsvet
+
+point1 = ColoredPoint(1, 1, 1)
+point2 = ColoredPoint(1, 1, 1)
+
+print(point1 == point2)
+print(hash(point1))
+print(hash(point2))
