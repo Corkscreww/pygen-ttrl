@@ -496,7 +496,29 @@
 # except AttributeError as e:
 #     print(e)
 
-'''№ 5.9.1 Функция limited_hash'''
+'''№ 5.9.1 Функция limited_hash''' 🌶️
 
-def limited_hash(left, right, hash_function):
+# from itertools import cycle
 
+# def limited_hash(left, right, hash_function=hash):
+#     def hashing(obj):
+#         hash_val = hash_function(obj)
+#         hash_iter = cycle(range(0, right - left + 1))
+#         if hash_val > right:
+#             for _ in range(hash_val - right - 1):
+#                 next(hash_iter)
+#             return left + next(hash_iter)
+#         elif hash_val < left:
+#             for _ in range(left - hash_val - 1):
+#                 next(hash_iter)
+#             return right - next(hash_iter)
+#         else:
+#             return hash_val
+#     return hashing
+
+# hash_function = limited_hash(10, 15)
+# print(hash_function(9))
+# print(hash_function(8))
+# print(hash_function(4))
+# print(hash_function(3))
+# print(hash_function(2))
