@@ -28,7 +28,7 @@
 # print(config1 is config2)
 # print(config1 is config3)
 
-# '''№ 5.1.1 Класс Book'''
+'''№ 5.2.1 Класс Book'''
 
 # class Book:
 #     def __init__(self, title, author, year):
@@ -47,8 +47,37 @@
 # print(book)
 # print(repr(book)
 
+'''№ 5.2.2 Класс Rectangle'''
 
-'''№ 5.1.4 Класс IPAddress'''
+# class Rectangle:
+#     def __init__(self, length, width):
+#         self.length, self.width = length, width
+
+#     def __repr__(self):
+#         return f'Rectangle({self.length}, {self.width})'
+
+# rectangle1 = Rectangle(1, 2)
+# rectangle2 = Rectangle(3, 4)
+# print(rectangle1)
+# print(repr(rectangle2))
+
+'''№ 5.2.3 Класс Vector'''
+
+# class Vector(object):
+#     def __init__(self, x, y):
+#         self.x, self.y = x, y
+
+#     def __repr__(self):
+#         return f'Vector({self.x}, {self.y})'
+
+#     def __str__(self):
+#         return f'Вектор на плоскости с координатами ({self.x}, {self.y})'
+
+# vector = Vector(1, 2)
+# print(str(vector))
+# print(repr(vector))
+
+'''№ 5.2.4 Класс IPAddress'''
 
 # from functools import singledispatchmethod
 
@@ -73,6 +102,29 @@
 # ip = IPAddress((1, 1, 11, 11))
 # print(str(ip))
 # print(repr(ip))
+
+'''№ 5.2.5 Класс PhoneNumber'''
+
+# class PhoneNumber(object):
+#     def __init__(self, phone_number):
+#         self.phone_number = ''.join(phone_number.split())
+
+#     def __repr__(self):
+#         return f'PhoneNumber(\'{self.phone_number}\')'
+
+#     def __str__(self):
+#         present = (
+#             '(' + self.phone_number[:3] + ') ' +
+#             self.phone_number[3:6] + '-' + self.phone_number[6:]
+#         )
+#         return present
+
+
+# phone1 = PhoneNumber('9173963385')
+# phone2 = PhoneNumber('918 396 3389')
+# phone3 = PhoneNumber('919 333 3344')
+# print(phone1, phone2, phone3, sep=', ')
+# print([phone1, phone2, phone3])
 
 '''№ 5.2.6 Класс AnyClass'''
 
@@ -124,7 +176,42 @@
 # print(a == pair4)
 # print(a == pair5)
 
-'''№ 5.3.3 Класс Month  ???????????????? ошибка с tuple'''
+'''№ 5.3.2 Класс Word'''
+
+# from functools import total_ordering
+
+# class Word(object):
+#     def __init__(self, word):
+#         self.word = word
+
+#     def __repr__(self):
+#         return f'Word(\'{self.word}\')'
+
+#     def __str__(self):
+#         return f'{self.word.capitalize()}'
+
+#     @total_ordering
+#     def __eq__(self, other):
+#         if isinstance(other, Word):
+#             return len(self.word) == len(other.word)
+#         return NotImplemented
+
+#     def __lt__(self, other):
+#         if isinstance(other, Word):
+#             return len(self.word) < len(other.word)
+#         return NotImplemented
+
+#     def __le__(self, other):
+#         if isinstance(other, Word):
+#             return len(self.word) <= len(other.word)
+#         return NotImplemented
+
+# words = [Word('python'), Word('bee'), Word('geek')]
+# print(sorted(words))
+# print(min(words))
+# print(max(words))
+
+'''№ 5.3.3 Класс Month '''
 
 # from functools import total_ordering
 
@@ -146,9 +233,9 @@
 
 #     def __eq__(self, value: object) -> bool:
 #         if isinstance(value, Month):
-#             a = self.dat()
-#             b = value.dat()
-#             return
+#             a = self.dat
+#             b = value.dat
+#             return a == b
 #         if isinstance(value, tuple) and len(value) == 2:
 #             return self.dat() == value
 #         return NotImplemented
@@ -164,11 +251,9 @@
 #             return self < new
 #         return NotImplemented
 
-# print(Month(1999, 12) == Month(1999, 12))
-# print(Month(1999, 12) < Month(2000, 1))
-# print(Month(1999, 12) > Month(2000, 1))
-# print(Month(1999, 12) <= Month(1999, 12))
-# print(Month(1999, 12) >= Month(2000, 1))
+# months = [Month(1998, 12), Month(2000, 1), Month(1999, 12)]
+# print(min(months))
+# print(max(months))
 
 '''№ 5.4.3 Класс Vector'''
 
@@ -524,46 +609,51 @@
 
 '''№ 5.10.1 Класс ColoredPoint'''
 
-class ColoredPoint:
-    def __init__(self, iks, ygryk, tsvet):
-        self.iks = iks
-        self.ygryk = ygryk
-        self.tsvet = tsvet
+# class ColoredPoint:
+#     def __init__(self, iks, ygryk, tsvet):
+#         self.iks = iks
+#         self.ygryk = ygryk
+#         self.tsvet = tsvet
 
-    @property
-    def x(self):
-        return self.iks
+#     @property
+#     def x(self):
+#         return self.iks
 
-    @property
-    def y(self):
-        return self.ygryk
+#     @property
+#     def y(self):
+#         return self.ygryk
 
-    @property
-    def color(self):
-        return self.tsvet
 
-    def __repr__(self):
-        return f'ColoredPoint({self.iks}, {self.ygryk}, {self.tsvet})'
+#     @property
+#     def color(self):
+#         return self.tsvet
 
-    def __eq__(self, other):
-        if isinstance(other, ColoredPoint):
-            return
-                self.iks == other.iks and
-                self.ygryk == other.ygryk and
-                self.tsvet == other.tsvet
+#     def __repr__(self):
+#         return f'ColoredPoint({self.iks}, {self.ygryk}, {self.tsvet})'
 
-        return NotImplemented
+#     def __eq__(self, other):
+#         if isinstance(other, ColoredPoint):
+#             return (
+#                 self.iks == other.iks and
+#                 self.ygryk == other.ygryk and
+#                 self.tsvet == other.tsvet
+#             )
+#         return NotImplemented
 
-    def __hash__(self):
-        return hash(self._fields)
+#     def __hash__(self):
+#         return hash(self._fields)
 
-    @property
-    def _fields(self):
-        return self.iks, self.ygryk, self.tsvet
+#     @property
+#     def _fields(self):
+#         return self.iks, self.ygryk, self.tsvet
 
-point1 = ColoredPoint(1, 1, 1)
-point2 = ColoredPoint(1, 1, 1)
 
-print(point1 == point2)
-print(hash(point1))
-print(hash(point2))
+
+# point1 = ColoredPoint(1, 1, 1)
+# point2 = ColoredPoint(1, 1, 1)
+
+# print(point1 == point2)
+# print(hash(point1))
+# print(hash(point2))
+
+
