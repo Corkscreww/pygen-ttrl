@@ -255,6 +255,51 @@
 # print(min(months))
 # print(max(months))
 
+'''№ 5.3.4 Класс Version'''
+
+
+from functools import total_ordering
+
+class Version(object):
+    def __init__(self, version):
+        self.version = version + '.0' * (2 - version.count('.'))
+
+    def __repr__(self):
+        return f'Version(\'{self.version}\')'
+
+    def __str__(self):
+        return self.version
+
+    @total_ordering
+    def __eq__(self, other):
+        if isinstance(other, Version):
+            return self.version == other.version
+        return NotImplemented
+
+    def _neq_tuple(self, other):
+        for self_val, other_val in zip(
+            self.version.replace('.', ''), other.version.replace('.', '')
+        ):
+            if int(self_val) != int(other_val):
+                return int(self_val), int(other_val)
+
+    def __lt__(self, other):
+        if isinstance(other, Version):
+            return self._neq_tuple[0] < self._neq_tuple[1]
+        return NotImplementation
+
+    def __le__(self, other):
+        if isistance(other, Version):
+            return self._neq_tuple[0] <= self._neq_tuple[1]
+        return NotImplementation
+
+print(Version('3.0.3') == Version('1.11.28'))
+print(Version('3.0.3') < Version('1.11.28'))
+print(Version('3.0.3') > Version('1.11.28'))
+print(Version('3.0.3') <= Version('1.11.28'))
+print(Version('3.0.3') >= Version('1.11.28'))
+
+
 '''№ 5.4.3 Класс Vector'''
 
 # from math import sqrt
