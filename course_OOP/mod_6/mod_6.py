@@ -172,3 +172,83 @@
 # print(len(cyclic_list))
 # print(cyclic_list.pop(0))
 # print(len(cyclic_list))
+
+'''6.3.2 Функция non_closed_files()'''
+
+# def non_closed_files(files):
+#     result = []
+#     for file in files:
+#         if file.closed is False:
+#             result.append(file)
+#     return result
+
+# with (
+#     open('file1.txt', 'w', encoding='utf-8') as file1,
+#     open('file2.txt', 'w', encoding='utf-8') as file2,
+#     open('file3.txt', 'w', encoding='utf-8') as file3
+# ):
+#     file1.write('i am the first file')
+#     file2.write('i am the second file')
+#     file3.write('i am the third file')
+
+# file1 = open('file1.txt', encoding='utf-8')
+# file3 = open('file3.txt', encoding='utf-8')
+
+# for file in non_closed_files([file1, file2, file3]):
+#     print(file.read())
+
+'''№ 6.5.4 Класс ReadableTextFile'''
+
+# class ReadableTextFile:
+#     def __init__(self, filename):
+#         self.filename = filename
+
+#     def __enter__(self):
+#         self.file = open(self.filename, 'r', encoding='utf-8')
+#         return (line.strip() for line in self.file)
+
+#     def __exit__(self, *args, **kwargs):
+#         self.file.close()
+
+# with open('glados_quotes.txt', 'w', encoding='utf-8') as file:
+#     print('Только посмотрите!', file=file)
+#     print('Как величаво она парит в воздухе', file=file)
+#     print('Как орел', file=file)
+#     print('На воздушном шаре', file=file)
+# with ReadableTextFile('glados_quotes.txt') as file:
+#     for line in file:
+#         print(line)
+
+'''№ 6.6.2 Контекстный менеджер reversed_print ??????????????????'''
+
+# import sys
+# from contextlib import contextmanager
+
+# @contextmanager
+# def reversed_print():
+#     yield
+
+'''№6.6.3 Контекстный менеджер safe_write ?????????????????'''
+
+# from contextlib import contextmanager
+
+# @contextmanager
+# def safe_write(filename):
+#     try:
+
+#         with open(filename, encoding='utf-8') as file:
+#             tmp = file.readlines()
+#         file = open(filename, 'w', encoding='utf-8')
+#         yield file
+#         file.close()
+
+
+#     except Exception as error:
+#         print(f'Во время записи в файл было возбуждено исключение: '
+#               f'{type(error)}')
+#         file.writelines(tmp)
+
+# with safe_write('undertale.txt') as file:
+#     file.write('Тень от руин нависает над вами, наполняя вас решительностью')
+# with open('undertale.txt') as file:
+#     print(file.read())
