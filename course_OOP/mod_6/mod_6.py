@@ -136,6 +136,60 @@
 # class RandomLooper(object):
 # self __init__(self, *args): pass
 
+'''№ 6.2.1 Класс ReversedSequence'''
+
+# class ReversedSequence(object):
+#     def __init__(self, sequence):
+#         self.sequence = sequence
+#         self._count = -1
+
+#     def __len__(self):
+#         return len(self.sequence)
+
+#     def __getitem__(self, index):
+#         return self.sequence[len(self.sequence) - index - 1]
+
+    # def __iter__(self):
+    #     yield from [
+    #         self.sequence[num]
+    #         for num in range(len(self.sequence) - 1, 0, -1)
+    #     ]
+
+#     def __contains__(self, elem):
+#         return elem in self.sequence
+
+# numbers = [1, 2, 3, 4, 5]
+# reversed_numbers = ReversedSequence(numbers)
+# print(reversed_numbers[0])
+# numbers.append(6)
+# print(reversed_numbers[0])
+
+'''№ 6.2.2 Класс SparseArray'''
+
+# class SparseArray(object):
+#     def __init__(self, default):
+#         self.array = {}
+#         self.default = default
+
+#     def __len__(self):
+#         return len(self.array)
+
+#     def __getitem__(self, index):
+#         if isinstance(index, int) and index in self.array:
+#             return self.array[index]
+#         else:
+#             return self.default
+
+#     def __setitem__(self, index, value):
+#         self.array[index] = value
+
+# array = SparseArray(None)
+# array[0] = 'Timur'
+# array[1] = 'Arthur'
+# print(array[0])
+# print(array[1])
+# print(array[2])
+
 '''№ 6.2.3 Класс CyclicList'''
 
 # from itertools import cycle
@@ -153,7 +207,7 @@
 #         self._init_iter(self.iterable)
 
 #     def pop(self, index=None):
-#         if index if None:
+#         if index is None:
 #             index = len(self.iterable) - 1
 #         result = self.iterable.pop(index)
 #         self._init_iter(self.iterable)
@@ -165,13 +219,195 @@
 #     def __getitem__(self, index):
 #         return next(self._itr)
 
-
 # cyclic_list = CyclicList([1, 2, 3])
-# cyclic_list.append(4)
-# print(cyclic_list.pop())
-# print(len(cyclic_list))
-# print(cyclic_list.pop(0))
-# print(len(cyclic_list))
+
+# for index, elem in enumerate(cyclic_list):
+#     if index > 6:
+#         break
+#     print(elem, end=' ')
+
+'''№ 6.2.4 Класс SequenceZip'''
+
+# class SequenceZip(object):
+#     def __init__(self, *args):
+#         self.sequence = list(zip(*args))
+
+#     def __len__(self):
+#         return len(self.sequence)
+
+#     def __iter__(self):
+#         return iter(self.sequence)
+
+#     def __getitem__(self, index):
+#         return self.sequence[index]
+
+# sequencezip = SequenceZip('ABC', ['bee', 'geek', 'python'],
+# [1, 2, 3])
+# print(len(sequencezip))
+# print(sequencezip[1])
+# print(sequencezip[2])
+
+'''№ 6.2.5 Класс OrderedSet'''
+
+# class OrderedSet(object):
+#     def __init__(self, iterable=[]):
+#        self._set = []
+#        for el in iterable:
+#            if el not in self._set:
+#                self._set.append(el)
+
+#     def add(self, value):
+#         if value not in self._set:
+#             self._set.append(value)
+
+#     def discard(self, value):
+#         if value in self._set:
+#             self._set.remove(value)
+
+#     def __len__(self):
+#         return len(self._set)
+
+#     def __iter__(self):
+#         return iter(self._set)
+
+#     def __contains__(self, value):
+#         return value in self._set
+
+#     def __eq__(self, other):
+#         if isinstance(other, OrderedSet):
+#             if len(self) == len(other):
+#                 for i in range(len(self)):
+#                     if self[i] != other[i]:
+#                         return False
+#                 return True
+
+#         if isinstance(other, set):
+#             if len(self) == len(other):
+#                 for elem in self:
+#                     if elem not in other:
+#                         return False
+#                 return True
+
+#         return NotImplemented
+
+# orderedset = OrderedSet()
+# orderedset.add('green')
+# orderedset.add('green')
+# orderedset.add('blue')
+# orderedset.add('red')
+# print(*orderedset)
+# orderedset.discard('blue')
+# orderedset.discard('white')
+# print(*orderedset)
+
+'''№ 6.2.6 Класс AttrDict'''
+
+# class AttrDict(object):
+#     def __init__(self, data={}):
+#         self.__dict__.update(data)
+
+#     def __getitem__(self, key):
+#         return self.__dict__[key]
+
+#     def __setitem__(self, key, value):
+#         self.__dict__[key] = value
+
+#     def __len__(self):
+#         return len(self.__dict__)
+
+# attrdict = AttrDict()
+# attrdict['school_name'] = 'BEEGEEK'
+# print(attrdict['school_name'])
+# print(attrdict.school_name)
+
+'''№ 6.2.7 Класс PermaDict'''
+
+# class PermaDict(object):
+#     def __init__(self, data={}):
+#         self._dict = {}
+#         self._dict.update(data)
+
+#     def keys(self):
+#         return [self._dict.keys()]
+
+#     def values(self):
+#         return [self._dict.values()]
+
+#     def items(self):
+#         return [self._dict.items()]
+
+#     def __len__(self):
+#         return len(self._dict)
+
+#     def __getitem__(self, key):
+#         return self._dict[key]
+
+#     def __setitem__(self, key, value):
+#         if key not in self._dict:
+#             self._dict[key] = value
+#         else:
+#             raise KeyError('Изменение значения по ключу невозможно')
+
+#     def __delitem__(self, key):
+#         del self._dict[key]
+
+# permadict = PermaDict({'name': 'Timur', 'city': 'Moscow'})
+# try:
+#     permadict['name'] = 'Arthur'
+# except KeyError as e:
+#     print(e)
+
+'''№ 6.2.8 Класс HistoryDict  🌶️'''
+
+# class HistoryDict(object):
+#     def __init__(self, data={}):
+#         self._dict = {}
+#         for el in data:
+#             self._dict[el] = []
+#             self._dict[el].append(data[el])
+
+#     def keys(self):
+#         return self._dict.keys()
+
+#     def values(self):
+#         return self._dict.values()
+
+#     def items(self):
+#         return self._dict.items()
+
+#     def __len__(self):
+#         return len(self._dict)
+
+#     def history(self, key):
+#         if key in self._dict:
+#             return self._dict[key]
+#         return []
+
+#     def all_history(self):
+#         return self._dict
+
+#     def __getitem__(self, key=None):
+#         if key is not None:
+#             return self._dict.get(key)[-1]
+#         else:
+#             return self.keys()
+
+#     def __setitem__(self, key, value):
+#         if key not in self._dict:
+#             self._dict[key] = []
+#             self._dict[key].append(value)
+#         else:
+#             self._dict[key].append(value)
+
+#     def __delitem__(self, key):
+#         del self._dict[key]
+
+# historydict = HistoryDict({'ducks': 99, 'cats': 1})
+# historydict['dogs'] = 1
+# print(len(historydict))
+# del historydict['ducks']
+# del historydict['cats']
+# print(len(historydict))
 
 '''6.3.2 Функция non_closed_files()'''
 
@@ -252,3 +488,4 @@
 #     file.write('Тень от руин нависает над вами, наполняя вас решительностью')
 # with open('undertale.txt') as file:
 #     print(file.read())
+
