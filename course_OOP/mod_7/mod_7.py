@@ -128,8 +128,6 @@
 #             return self.string in other.lower()
 #         return NotImplemented
 
-
-
 # s = FuzzyString('BeeGeek')
 
 # print(s != 'BEEGEEK')
@@ -143,48 +141,48 @@
 
 '''№ 7.4.5 Класс NumberList'''
 
-from collections import UserList
+# from collections import UserList
 
-class NumberList(UserList):
-    def __init__(self, iterable=[]):
-        UserList.__init__(iterable)
-        for el in iterable:
-            if isinstance(el, (int, float)):
-                self.data.append(el)
-            else:
-                raise TypeError(
-                    'Элементами экземпляра класса могут быть только числа'
-                )
+# class NumberList(UserList):
+#     def __init__(self, iterable=[]):
+#         UserList.__init__(iterable)
+#         for el in iterable:
+#             if isnstance(el, (int, float)):
+#                 self.data.append(el)
+#             else:
+#                 raise TypeError(
+#                     'Элементами экземпляра класса могут быть только числа'
+#                 )
 
-    def __add__(self, other):
-        if all(map(lambda x: isinstance(x, (int, float)), other)):
-            self.data += other
-        else:
-            raise TypeError(
-                'Элементами экземпляра класса могут быть только числа'
-            )
+#     def __add__(self, other):
+#         if all(map(lambda x: isinstance(x, (int, float)), other)):
+#             self.data += other
+#         else:
+#             raise TypeError(
+#                 'Элементами экземпляра класса могут быть только числа'
+#             )
 
-    def __append__(self, value):
-        if isinstance(value, (int, float)):
-            self.data.append(value)
-        else:
-            raise TypeError(
-                'Элементами экземпляра класса могут быть только числа'
-            )
+#     def __append__(self, value):
+#         if isinstance(value, (int, float)):
+#             self.data.append(value)
+#         else:
+#             raise TypeError(
+#                 'Элементами экземпляра класса могут быть только числа'
+#             )
 
-    def __setitem__(self, index, value):
-        if isinstance(value, (int, float)):
-            self.data[index] = value
-        else:
-            raise TypeError(
-                'Элементами экземпляра класса могут быть только числа'
-            )
+#     def __setitem__(self, index, value):
+#         if isinstance(value, (int, float)):
+#             self.data[index] = value
+#         else:
+#             raise TypeError(
+#                 'Элементами экземпляра класса могут быть только числа'
+#             )
 
-numberlist = NumberList([1, 2])
-numberlist.append(3)
-numberlist.extend([4, 5])
-numberlist.insert(0, 0)
-print(numberlist)
+# numberlist = NumberList([1, 2])
+# numberlist.append(3)
+# numberlist.extend([4, 5])
+# numberlist.insert(0, 0)
+# print(numberlist)
 
 
 '''№ 7.5.4 Функции is_iterator() и is_iterable() '''
