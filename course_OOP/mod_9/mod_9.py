@@ -152,20 +152,54 @@
 
 """№ 9.4 Классы ArithmeticProgression и GeometricProgression"""
 
-class ArithmeticProgression:
-    def __init__(self, fst, step):
-        self.fst, self.step = fst, step
-        self.val = self.fst - self.step
+# class ArithmeticProgression:
+#     def __init__(self, fst, step):
+#         self.fst, self.step = fst, step
+#         self.val = self.fst - self.step
 
-    def __iter__(self):
+#     def __iter__(self):
+#         return self
+
+#     def __next__(self):
+#         self.val += self.step
+#         return self.val
+
+# class GeometricProgression:
+#     def __init__(self, fst, step):
+#         self.fst, self.step = fst, step
+#         self.val = self.fst / self.step
+
+#     def __iter__(self):
+#         return self
+
+#     def __next__(self):
+#         self.val *= self.step
+#         return int(self.val)
+
+# progression = GeometricProgression(100, 10)
+# count = 0
+
+# for item in progression:
+#     if count == 20:
+#         break
+#     count += 1
+#     print(item, end=' ')
+
+"""№9.5 Классы Domain и DomainException"""
+
+class Domain:
+    def __init__(self, data):
+        self._data = data
+
+    def from_url(self, url):
         pass
 
-    def __next__(self):
-        self.val += self.step
-        yield self.val
+    def from_email(self, email):
+        pass
 
-progression = ArithmeticProgression(0, 1)
-for elem in progression:
-    if elem > 10:
-        break
-    print(elem, end=' ')
+    def __str__(self):
+        return f''
+
+
+class DomainException:
+    pass
