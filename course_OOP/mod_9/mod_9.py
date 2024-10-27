@@ -302,39 +302,158 @@
 
 '''№ 9.7 Класс Pagination'''
 
-class Pagination:
-    def __init__(self, data, limit):
-        self.limit = limit
-        self.current_page = 1
-        self.total_pages = (
-            lambda: len(data) // limit
-            if len(data) % limit == 0
-            else len(data) // limit + 1
-        )()
+# class Pagination:
+#     def __init__(self, data, limit):
+#         self._data = data
+#         self.limit = limit
+#         self.current_page = 1
+#         self.total_pages = (
+#             lambda: len(self._data) // self.limit
+#             if len(self._data) % self.limit == 0
+#             else len(self._data) // self.limit + 1
+#         )()
 
-    @staticmethod
-    def _limit_control(page):
-        if page > self.total_pages:
-            return self.total_pages
-        elif page < 1:
-            return 1
+#     @staticmethod
+#     def _limit_control(page, total_pages):
+#         if page > total_pages:
+#             return total_pages
+#         elif page < 1:
+#             return 1
+#         else:
+#             return page
 
-    def prev_page(self):
-        self.current_page = self._limit_control(self.current_page - 1)
+#     def prev_page(self):
+#         self.current_page = self._limit_control(
+#             self.current_page - 1,
+#             self.total_pages
+#         )
+#         return self
 
-    def next_page(self):
-        self.current_page = self._limit_control(self.current_page + 1)
+#     def next_page(self):
+#         self.current_page = self._limit_control(
+#             self.current_page + 1,
+#             self.total_pages
+#         )
+#         return self
 
-    def first_page(self):
-        self.current_page = 1
+#     def first_page(self):
+#         self.current_page = 1
 
-    def last_page(self):
-        self.current_page = self.total_pages
+#     def last_page(self):
+#         self.current_page = self.total_pages
 
-    def go_to_page(self, page):
-        self.current_page = self._limit_control(page)
+#     def go_to_page(self, page):
+#         self.current_page = self._limit_control(page, self.total_pages)
 
 
-    def get_visible_items(self):
-        return f''
+#     def get_visible_items(self):
+#         # # items_per_page = len(self._data) // self.limit
+#         # # print(f'total pages = {self.total_pages}')
+#         # # print(f'CP = {self.current_page}')
+#         start_index = self.limit * (self.current_page - 1)
+#         end_index = start_index + self.limit
+#         # # print(f'start index = {start_index} end index = {end_index}')
+#         if end_index > len(self._data):
+#             end_index = len(self._data)
+#         result = [self._data[i] for i in range(start_index, end_index)]
+#         return result
+
+
+# alphabet = list('abcdefghijklmnopqrstuvwxyz')
+# pagination = Pagination(alphabet, 4)
+# pages = [7, 3, 6, 1, 4, 2, 5]
+
+# for page in pages:
+#     pagination.go_to_page(page)
+#     print(pagination.get_visible_items())
+
+# # ['y', 'z']
+# # ['i', 'j', 'k', 'l']
+# # ['u', 'v', 'w', 'x']
+# # ['a', 'b', 'c', 'd']
+# # ['m', 'n', 'o', 'p']
+# # ['e', 'f', 'g', 'h']
+# # ['q', 'r', 's', 't']
+
+'''№ 9.8 Класс Testpaper и Student'''
+
+# class Testpaper:
+#     def __init__(self, subject, correct_answers, pass_score):
+#         self.subject = subject
+#         self.correct_answers = correct_answers
+#         self.pass_score = int(pass_score[:-1])
+
+# class Student:
+#     def __init__(self):
+#         self.tests_taken = 'No tests taken'
+
+#     def take_test(self, test, answers):
+#         subject = test.subject
+#         correct_answers = test.correct_answers
+#         if type(self.tests_taken) == str:
+#             self.tests_taken = {}
+#         self.tests_taken.update(
+#             {
+#                 subject: Student._test_check(
+#                     answers, correct_answers, test.pass_score
+#                 )
+#             }
+#         )
+
+
+#     def _test_check(answers, correct_answers, pass_score):
+#         result_list = [
+#                 answer == correct_answer
+#                 for answer, correct_answer in zip(answers, correct_answers)
+#             ]
+#         # print(result_list)
+#         result = sum(result_list)
+#         # print(result)
+#         result = round(result * 100 / len(answers))
+#         if result >= pass_score:
+#             return f'Passed! ({result}%)'
+#         else:
+#             return f'Failed! ({result}%)'
+
+
+# papers = [
+#     Testpaper('Maths', ['1A', '2C', '3D', '4A', '5A'], '60%'),
+#     Testpaper('Chemistry', ['1C', '2C', '3D', '4A'], '75%'),
+#     Testpaper('Computing', ['1D', '2C', '3C', '4B', '5D', '6C', '7A'], '75%'),
+#     Testpaper(
+#         'Informatics',
+#         ['1A', '2A', '3A', '4A', '5A', '6C', '7A', '8A', '9D', '10B', '11C', '12A', '13C', '14B', '15B', '16B', '17D',
+#          '18B', '19D', '20D'],
+#         '90%'
+#     )
+# ]
+
+# papers = [
+#     Testpaper('Maths', ['1A', '2C', '3D', '4A', '5A'], '60%'),
+#     Testpaper('Chemistry', ['1C', '2C', '3D', '4A'], '75%'),
+#     Testpaper('Computing', ['1D', '2C', '3C', '4B', '5D', '6C', '7A'], '75%'),
+#     Testpaper(
+#         'Informatics',
+#         ['1A', '2A', '3A', '4A', '5A', '6C', '7A', '8A', '9D', '10B', '11C', '12A', '13C', '14B', '15B', '16B', '17D',
+#          '18B', '19D', '20D'],
+#         '90%'
+#     )
+# ]
+
+# student = Student()
+
+# student.choices = [
+#     ['1A', '2C', '3D', '4B', '5A'],
+#     ['1C', '2A', '3D', '4A'],
+#     ['1D', '2C', '3C', '4B', '5D', '6A', '7A'],
+#     ['1A', '2A', '3A', '4A', '5A', '6C', '7A', '8B', '9D', '10B', '11C', '12A', '13C', '14B', '15B', '16B', '17D',
+#      '18B', '19D', '20D']
+# ]
+
+# for i in range(4):
+#     student.take_test(papers[i], student.choices[i])
+
+# print(student.tests_taken)
+
+# # {'Maths': 'Passed! (80%)', 'Chemistry': 'Passed! (75%)', 'Computing': 'Passed! (86%)', 'Informatics': 'Passed! (95%)'}
 
