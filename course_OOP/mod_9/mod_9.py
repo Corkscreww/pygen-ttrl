@@ -457,3 +457,110 @@
 
 # # {'Maths': 'Passed! (80%)', 'Chemistry': 'Passed! (75%)', 'Computing': 'Passed! (86%)', 'Informatics': 'Passed! (95%)'}
 
+'''№ 9.9 Класс TicTacToe'''
+
+# from itertools import cycle
+
+# class TicTacToe:
+#     def __init__(self):
+#         self.field = [[' ' for _ in range(3)] for _ in range(3)]
+#         self.turn = cycle(['X', 'O'])
+#         self.win = None
+
+#     def mark(self, x, y):
+#         # x_o = {'X': 'крестиком', 'O': 'ноликом'}
+#         x -= 1
+#         y -= 1
+#         if self.win is None:
+#             if self.field[x][y] == ' ':
+#                 self.field[x][y] = next(self.turn)
+#                 # print(
+#                     # f'помечаем {x_o[self.field[x][y]]} клетку с координатами '
+#                     # f'({x + 1}, {y + 1})'
+#                 # )
+#                 self._win_check()
+#             else:
+#                 print('Недоступная клетка')
+#         else:
+#             print('Игра окончена')
+
+#     def _win_check(self):
+#         field = self.field
+
+#         for row in field:
+#             if len(set(row)) == 1 and row[0] != ' ':
+#                 print(set(row), ' строка')
+#                 self.win = row[0]
+#                 return None
+
+#         for col in range(3):
+#             if len(set([row[col] for row in field]))  == 1 and field[0][col] != ' ':
+#                 print(set([row[col] for row in field]), 'колонка')
+#                 self.win = field[0][col]
+#                 return None
+
+#         if len(set([field[x][x] for x in range(3)])) == 1 and field[0][0] != ' ':
+#             print(set([field[x][x] for x in range(3)]), ' главная диагональ')
+#             self.win = field[0][0]
+#             return None
+
+#         draw = True
+#         for row in field:
+#             if ' ' in field:
+#                 draw = False
+#                 print('govno')
+#                 break
+#         if draw:
+#             self.win = 'ничья'
+
+#         # if len(set([field[x][(-x-1)] for x in range(3))) == 1 and field[0][-1] != ' ':
+#         #     self.win = field[0][-1]
+
+#     def winner(self):
+#         return self.win
+
+#     def show(self):
+#         for row in range(3):
+#             print(f"{'|'.join(self.field[row])}\n-----")
+
+# tictactoe = TicTacToe()
+
+# tictactoe.mark(1, 1)
+# tictactoe.mark(1, 3)
+# tictactoe.mark(3, 1)
+# tictactoe.mark(2, 1)
+
+# print(tictactoe.winner())
+
+# tictactoe.mark(3, 2)
+# tictactoe.mark(3, 3)
+# tictactoe.mark(1, 2)
+# tictactoe.mark(2, 2)
+# tictactoe.mark(2, 3)
+
+# print(tictactoe.winner())
+# tictactoe.show()
+# tictactoe.mark(2, 2)
+# print(tictactoe.winner())
+
+# # None
+# # Ничья
+# # X|X|O
+# # -----
+# # O|O|X
+# # -----
+# # X|X|O
+# # Игра окончена
+# # Ничья
+
+'''№ 9.10 Классы Game и Cell'''
+
+class Game:
+    def __init__(self, rows, cols, mines):
+        self.rows = rows
+        self.cols = cols
+        self.mines = mines
+
+clsas Cell:
+    pass
+
