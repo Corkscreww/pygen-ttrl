@@ -555,12 +555,57 @@
 
 '''№ 9.10 Классы Game и Cell'''
 
-class Game:
-    def __init__(self, rows, cols, mines):
-        self.rows = rows
-        self.cols = cols
-        self.mines = mines
+# from random import randint as rand
 
-clsas Cell:
-    pass
+# class Game:
+#     def __init__(self, rows, cols, mines):
+#         self.rows = rows
+#         self.cols = cols
+#         self.mines = mines
+#         self.board = [
+#             [Cell(row, col)
+#              for col in range(self.cols)] for row in range(self.rows)
+#         ]
+#         self._mines_fill(self.mines)
+#         self._get_neighbours(self.board)
+
+#     def _mines_fill(self, mines):
+#         mines_count = 0
+#         while mines_count < mines:
+#             mine_row = rand(0, self.rows - 1)
+#             mine_col = rand(0, self.cols - 1)
+#             cell = self.board[mine_row][mine_col].mine
+#             if not cell:
+#                 self.board[mine_row][mine_col].mine = True
+#                 mines_count += 1
+#                 # print(f'Мина № {mines_count}')
+#                 # print(f'mine_row = {mine_row}, mine_col = {mine_col}')
+
+#     def _get_neighbours(self, board):
+#         for row in range(self.rows):
+#             for col in range(self.cols):
+#                 count = 0
+#                 for i,j in (-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1):
+#                     if 0 <= row + i < self.rows and 0 <= col + j < self.cols and board[row + i][col + j].mine:
+#                         count += 1
+#                 self.board[row][col].neighbours = count
+
+
+
+
+#     def board_print(self):
+#         for i in range(self.rows):
+#             for j in range(self.cols):
+#                 if self.board[i][j].mine:
+#                     print(1, end=' ')
+#                 else:
+#                     print('0', end=' ')
+#             print()
+
+# class Cell:
+#     def __init__(self, row, col, mine=False, neighbours=0):
+#         self.row = row
+#         self.col = col
+#         self.mine = mine
+#         self.neighbours = neighbours
 

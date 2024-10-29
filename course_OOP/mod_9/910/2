@@ -1,0 +1,5 @@
+game = Game(10, 8, 14)
+
+for r, c in ((0, 0), (0, -1), (-1, 0), (-1, -1)):
+    cell = game.board[r][c]
+    print(0 <= cell.neighbours <= 3, type(cell))

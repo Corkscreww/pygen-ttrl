@@ -1,0 +1,10 @@
+game = Game(14, 18, 40)
+print(game.rows)
+print(game.cols)
+print(game.mines)
+
+cell = game.board[0][0]
+
+print(cell.row)
+print(cell.col)
+print(0 <= cell.neighbours <= 3)
