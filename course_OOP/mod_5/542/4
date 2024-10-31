@@ -1,0 +1,3 @@
+money = Money(500)
+neg_money = -money
+print(neg_money is money)

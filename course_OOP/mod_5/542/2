@@ -1,0 +1,5 @@
+money = Money(-100)
+
+print(money)
+print(+money)
+print(-money)

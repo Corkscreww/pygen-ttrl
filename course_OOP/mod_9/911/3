@@ -1,0 +1,16 @@
+from string import ascii_lowercase
+
+obj = Selfie()
+for char in ascii_lowercase:
+    obj.__dict__[char] = ord(char)
+
+print(*(obj.__dict__[char] for char in ascii_lowercase))
+obj.save_state()
+
+for char in ascii_lowercase:
+    obj.__dict__[char] = ord(char) + 100
+
+print(*(obj.__dict__[char] for char in ascii_lowercase))
+obj = obj.recover_state(0)
+
+print(*(obj.__dict__[char] for char in ascii_lowercase))

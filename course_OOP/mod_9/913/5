@@ -1,0 +1,23 @@
+@predicate
+def is_arithmetic_mean(iterable):
+    result = {iterable[i + 1] - iterable[i] for i in range(len(iterable) - 1)}
+    return len(result) == 1
+
+
+@predicate
+def is_geometric_mean(iterable):
+    result = {iterable[i + 1] // iterable[i] for i in range(len(iterable) - 1)}
+    return len(result) == 1
+
+
+print(is_arithmetic_mean([1, 2, 3, 4, 5]))
+print(is_geometric_mean([1, 2, 4, 8, 16]))
+
+print((is_arithmetic_mean & is_geometric_mean)([1, 2, 3, 4, 5]))
+print((is_arithmetic_mean | is_geometric_mean)([1, 2, 3, 4, 5]))
+
+print((is_arithmetic_mean & is_geometric_mean)([1, 2, 4, 8, 16]))
+print((is_arithmetic_mean | is_geometric_mean)([1, 2, 4, 8, 16]))
+
+print((~is_arithmetic_mean & ~is_geometric_mean)([1, 2, 4, 5]))
+print((~is_arithmetic_mean | ~is_geometric_mean)([1, 2, 3, 4, 5]))

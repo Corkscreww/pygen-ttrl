@@ -1,0 +1,7 @@
+multikeydict = MultiKeyDict(x=100, y=[10, 20])
+
+multikeydict.alias('x', 'y')
+print(multikeydict['y'])
+
+multikeydict['y'] += [30]
+print(multikeydict['y'])

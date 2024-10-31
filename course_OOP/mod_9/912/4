@@ -1,0 +1,10 @@
+multikeydict = MultiKeyDict(lecture='python', lesson='object oriented programming')
+
+multikeydict.alias('lecture', 'lesson')
+print(multikeydict['lesson'])
+
+multikeydict.alias('lecture', 'lesson')
+print(multikeydict['lesson'])
+
+del multikeydict['lesson']
+print(multikeydict['lesson'])

@@ -1,0 +1,7 @@
+@predicate
+def is_less_than(a, b):
+    return a < b
+
+print(is_less_than(1, 2))
+print(is_less_than(2, 2))
+print(is_less_than(3, 2))

@@ -1,0 +1,10 @@
+obj = Selfie()
+
+print(obj.n_states())
+obj.x = 0
+obj.save_state()
+obj.x = 1
+obj.save_state()
+obj.x = 2
+obj.save_state()
+print(obj.n_states())

@@ -21,8 +21,55 @@
 # print(user.skip_ads())
 # print(premium_user.skip_ads())
 
-'''№ 7.2.3 Классы Triangle и EquilateralTriangle'''
+'''№ 7.1.6 Класс Counter и подклассы'''
 
+# class Counter:
+#     def __init__(self, start=0):
+#         self.value = start
+
+#     def inc(self, n=1):
+#         self.value += n
+
+#     def dec(self, n=1):
+#         self.value -= n
+#         if self.value < 0:
+#             self.value = 0
+
+# class NonDecCounter(Counter):
+#     def dec(self, n=1):
+#         pass
+
+# class LimitedCounter(Counter):
+#     def __init__(self, start=0, limit=10):
+#         super().__init__(start)
+#         self._limit = limit
+
+#     def inc(self, n=1):
+#         self.value += n
+#         if self.value > self._limit:
+#             self.value = self._limit
+
+
+# digits = [46, 158, 79, 100, 161, 100, 30, 27, 132, 79, 152, 114, 97, 171, 71, 35, 186, 157, 149, 144, 156, 41, 172, 122,
+#           131, 141, 69, 113, 86, 46, 104, 147, 42, 60, 31, 32, 190, 107, 110, 103, 77, 135, 35, 33, 104, 191, 94, 55,
+#           50, 156]
+
+# counter = LimitedCounter(start=10, limit=2000)
+
+# pos = True
+
+# for digit in digits:
+#     if pos:
+#         counter.inc(digit)
+#     else:
+#         counter.dec(digit)
+#     pos = not pos
+
+# print(counter.value)
+
+# # 120
+
+'''№ 7.2.3 Классы Triangle и EquilateralTriangle'''
 
 # class Triangle:
 #     def __init__(self, a, b, c):

@@ -22,6 +22,26 @@
 # print(Shape('rectangle', 'green', 12) == Shape('triangle', 'red', 12))
 # print(Shape('triangle', 'red', 15) > Shape('triangle', 'red', 12))
 
+'''№ 8.5.5 Декоратор @snake_case'''
+
+class MyClass:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    def FirstMethod(self):
+        return 1
+    def superSecondMethod(self):
+        return 2
+
+obj = MyClass(1, 2)
+print(MyClass.__dict__)
+print(dir(obj))
+
+class snake_case:
+    pass
+
+
+
 """№ 8.6.2 Класс MusicAlbum"""
 
 # from dataclasses import dataclass

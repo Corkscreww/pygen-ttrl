@@ -1,0 +1,9 @@
+multikeydict1 = MultiKeyDict(x=1, y=2, z=3)
+multikeydict2 = MultiKeyDict([('x', 1), ('y', 2), ('z', 3)])
+
+print(multikeydict1['x'])
+print(multikeydict1['y'])
+print(multikeydict2['z'])
+
+multikeydict1['a'] = 4
+print(multikeydict1['a'])

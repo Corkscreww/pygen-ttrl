@@ -609,3 +609,73 @@
 #         self.mine = mine
 #         self.neighbours = neighbours
 
+'''№ 9.11 Класс Curencu'''
+
+# class Currency:
+#     CONVERTATION = {
+#         'RUB-USD': 81.818182,
+#         'RUB-EUR': 90,
+#         'USD-EUR': 1.1,
+#         'USD-RUB': 0.012222,
+#         'EUR-RUB': 0.011111,
+#         'EUR-USD': 0.909091,
+#     }
+
+#     def __init__(self, amount, cur):
+#         self.amount = amount
+#         self.cur = cur
+
+#     def change_to(self, new):
+#         if self.cur != new:
+#             cur_pair = f'{self.cur}-{new}'
+#             self.amount /= self.CONVERTATION[cur_pair]
+#             self.amount = round(self.amount, 1)
+#             self.cur = new
+
+#     def __str__(self):
+#         return f'{self.amount} {self.cur}'
+
+#     def __add__(self, other):
+#         new = type(self)(other.amount, other.cur)
+#         new.change_to(self.cur)
+#         new.amount += self.amount
+#         return new
+
+#     def __sub__(self, other):
+#         new = type(self)(other.amount, other.cur)
+#         new.change_to(self.cur)
+#         new.amount -= self.amount
+#         return new
+
+
+#     def __mul__(self, other):
+#         new = type(self)(other.amount, other.cur)
+#         new.change_to(self.cur)
+#         new.amount *= self.amount
+#         return new
+
+#     def __truediv__(self, other):
+#         new = type(self)(other.amount, other.cur)
+#         new.change_to(self.cur)
+#         new.amount /= self.amount
+#         return new
+
+# money_r = Currency(20, 'RUB')
+# money_e = Currency(20, 'EUR')
+# money_d = Currency(20, 'USD')
+
+# print(money_r, money_e, money_d, sep=' | ')
+# print(money_r)
+# money_r.change_to('USD')
+# print(money_r)
+
+# print(Currency(5, 'EUR') + Currency(5, 'EUR'))# 10 EUR
+# print(Currency(5, 'EUR') + Currency(11, 'USD'))# 15.0 EUR
+# print(Currency(5, 'RUB') + Currency(11, 'USD'))# 905.0 RUB
+# print(Currency(5, 'USD') * Currency(5, 'EUR'))# 27.5 USD
+
+'''№ 9.12 Класс Selfie'''
+
+class Selfie:
+    pass
+

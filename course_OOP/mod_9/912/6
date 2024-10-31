@@ -1,0 +1,6 @@
+mkey = MultiKeyDict(x=1)
+mkey.alias('x', 'y')
+mkey.alias('x', 'z')
+print(mkey['x'], mkey['y'], mkey['z'])
+mkey['y'] += 1
+print(mkey['x'], mkey['y'], mkey['z'])

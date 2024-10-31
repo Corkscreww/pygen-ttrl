@@ -1,0 +1,10 @@
+multikeydict = MultiKeyDict(x=100)
+
+multikeydict.alias('x', 'z')
+del multikeydict['x']
+print(multikeydict['z'])
+
+try:
+    print(multikeydict['x'])
+except KeyError:
+    print('Ключ отсутствует')
