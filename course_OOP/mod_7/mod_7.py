@@ -192,45 +192,65 @@
 
 # class NumberList(UserList):
 #     def __init__(self, iterable=[]):
-#         UserList.__init__(iterable)
-#         for el in iterable:
-#             if isnstance(el, (int, float)):
-#                 self.data.append(el)
+#         if iterable and self._type_check(iterable):
+#             super().__init__(iterable)
+#         elif not iterable:
+#             super().__init__()
+
+#     def _type_check(self, other):
+#         if '__iter__' in dir(other):
+#             if all(map(lambda x: isinstance(x, (int, float)), other)):
+#                 print('это итерируемыя хуйно')
+#                 return True
+#             else:
+#                 raise TypeError(
+#                     'Элементами экземпляра класса могут быть только числа'
+#                 )
+#         else:
+#             if isinstance(other, (int, float)):
+#                 print('это число')
+#                 return True
 #             else:
 #                 raise TypeError(
 #                     'Элементами экземпляра класса могут быть только числа'
 #                 )
 
-#     def __add__(self, other):
-#         if all(map(lambda x: isinstance(x, (int, float)), other)):
-#             self.data += other
-#         else:
-#             raise TypeError(
-#                 'Элементами экземпляра класса могут быть только числа'
-#             )
+#     def __add__(self, value):
+#         if isinstance(value, type(self)):
+#             return type(self)(self.data + value.data)
+#         elif self._type_check(value):
+#             print('всё заебись')
+#             return type(self)(self.data + value)
 
-#     def __append__(self, value):
-#         if isinstance(value, (int, float)):
+#     def __iadd__(self, value):
+#         if isinstance(value, type(self)):
+#             return type(self)(self.data + value.data)
+#         elif self._type_check(value):
+#             print('всё заебись')
+#             return type(self)(self.data + value)
+
+
+#     def append(self, value):
+#         if self._type_check(value):
 #             self.data.append(value)
-#         else:
-#             raise TypeError(
-#                 'Элементами экземпляра класса могут быть только числа'
-#             )
+
+#     def extend(self, value):
+#         if self._type_check(value):
+#             self.data.extend(value)
 
 #     def __setitem__(self, index, value):
-#         if isinstance(value, (int, float)):
+#         if self._type_check(value):
 #             self.data[index] = value
-#         else:
-#             raise TypeError(
-#                 'Элементами экземпляра класса могут быть только числа'
-#             )
+
+#     def insert(self, index, value):
+#         if self._type_check(value):
+#             self.data.insert(index, value)
 
 # numberlist = NumberList([1, 2])
-# numberlist.append(3)
-# numberlist.extend([4, 5])
-# numberlist.insert(0, 0)
-# print(numberlist)
-
+# try:
+#     numberlist.extend([5, '4', 3])
+# except TypeError as e:
+#     print(e)
 
 '''№ 7.5.4 Функции is_iterator() и is_iterable() '''
 
@@ -285,3 +305,4 @@
 # print(len(customrange))
 # print(*customrange)
 # print(*reversed(customrange))
+
