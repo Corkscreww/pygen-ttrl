@@ -272,37 +272,37 @@
 
 '''№ 7.5.5 Класс CustomRange'''
 
-# from collections.abc import Collection
-# class CustomRange(Collection):
-#     def __init__(self, *args):
-#         self.seq = []
-#         for arg in args:
-#             if isinstance(arg, int):
-#                 self.seq.append(arg)
-#             if isinstance(arg, str):
-#                 arg = arg.split('-')
-#                 self.seq.extend(
-#                     num for num in range(int(arg[0]), int(arg[1]) + 1)
-#                 )
+from collections.abc import Collection
+class CustomRange(Collection):
+    def __init__(self, *args):
+        self.seq = []
+        for arg in args:
+            if isinstance(arg, int):
+                self.seq.append(arg)
+            if isinstance(arg, str):
+                arg = arg.split('-')
+                self.seq.extend(
+                    num for num in range(int(arg[0]), int(arg[1]) + 1)
+                )
 
-#     def __contains__(self, other):
-#         return other in self.seq
+    def __contains__(self, other):
+        return other in self.seq
 
-#     def __len__(self):
-#         return len(self.seq)
+    def __len__(self):
+        return len(self.seq)
 
-#     def __iter__(self):
-#         return iter(self.seq)
+    def __iter__(self):
+        return iter(self.seq)
 
-#     def __reversed__(self):
-#         yield from (
-#             self.seq[index] for index in range(-1, -1 - len(self.seq), -1))
+    def __reversed__(self):
+        yield from (
+            self.seq[index] for index in range(-1, -1 - len(self.seq), -1))
 
-#     def __getitem__(self, index):
-#         return self.seq[index]
+    def __getitem__(self, index):
+        return self.seq[index]
 
-# customrange = CustomRange()
-# print(len(customrange))
-# print(*customrange)
-# print(*reversed(customrange))
+customrange = CustomRange()
+print(len(customrange))
+print(*customrange)
+print(*reversed(customrange))
 

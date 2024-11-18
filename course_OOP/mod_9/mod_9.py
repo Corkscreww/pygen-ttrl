@@ -676,6 +676,6 @@
 
 '''№ 9.12 Класс Selfie'''
 
-class Selfie:
-    pass
+# class Selfie:
+#     pass
 
